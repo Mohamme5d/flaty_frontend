@@ -9,6 +9,10 @@ import { Routes } from '@angular/router';
 export const rent_contract: Routes=[
   {path: 'list',component: RentContractListComponent},
   {path: 'update',component: RentContractUpdateComponent},
-  {path: 'create',component: RentContractCreateComponent},
-  {path: 'detail',component: RentContractDetailComponent},
+  {path: 'create/:id',component: RentContractCreateComponent},
+  {path: 'detail/:id',component: RentContractDetailComponent},
 ]
+
+export class AppRoutingModule {}
+export const routingComponent= [RentContractListComponent,RentContractUpdateComponent, 
+  RentContractCreateComponent, RentContractDetailComponent]

@@ -15,10 +15,11 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [
+    RentContractListComponent,
     RentContractDetailComponent,
     RentContractCreateComponent,
     RentContractUpdateComponent,
-    RentContractListComponent
+    
   ],
   imports: [
     CommonModule,
@@ -27,6 +28,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    
   ]
 })
 export class RentContractModule { }
