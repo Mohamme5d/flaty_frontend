@@ -22,7 +22,7 @@ import { rentersRoute } from './renters.routing';
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(rentersRoute),
+    RouterModule.forChild(rentersRoute),
     ClipboardModule,
     FormsModule,
     HttpClientModule,

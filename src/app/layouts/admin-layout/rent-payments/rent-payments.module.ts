@@ -21,7 +21,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(rent_payment),
+    RouterModule.forChild(rent_payment),
     ClipboardModule,
     FormsModule,
     HttpClientModule,

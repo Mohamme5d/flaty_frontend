@@ -21,7 +21,7 @@ import { expenses } from './expenses.routing'
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(expenses),
+    RouterModule.forChild(expenses),
     ClipboardModule,
     FormsModule,
     HttpClientModule,
