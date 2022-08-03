@@ -5,25 +5,29 @@ import { RentersCreateComponent } from './renters-create/renters-create.componen
 import { RentersUpdateComponent } from './renters-update/renters-update.component';
 import { RentersDetailComponent } from './renters-detail/renters-detail.component';
 import {  RouterModule, Routes } from "@angular/router";
+import { ClipboardDirective, ClipboardModule, ClipboardService } from 'ngx-clipboard';
+import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { rentersRoute } from './renters.routing';
 
-
-const rentersRoute: Routes=[
-  {path: 'list',component: RentersListComponent},
-  {path: 'create',component: RentersCreateComponent},
-  {path: 'update',component: RentersUpdateComponent},
-  {path: 'detail',component: RentersDetailComponent},
-]
 
 @NgModule({
   declarations: [
     RentersListComponent,
     RentersCreateComponent,
     RentersUpdateComponent,
-    RentersDetailComponent
+    RentersDetailComponent,
+    
   ],
   imports: [
     CommonModule,
-    RouterModule.forRoot(rentersRoute)
-  ]
+    RouterModule.forRoot(rentersRoute),
+    ClipboardModule,
+    FormsModule,
+    HttpClientModule,
+    NgbModule,
+  ],
+
 })
 export class RentersModule { }
