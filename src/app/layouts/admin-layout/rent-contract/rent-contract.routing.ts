@@ -8,8 +8,8 @@ import { Routes } from '@angular/router';
 
 export const rent_contract: Routes=[
   {path: 'list',component: RentContractListComponent},
-  {path: 'update',component: RentContractUpdateComponent},
-  {path: 'create/:id',component: RentContractCreateComponent},
+  {path: 'update/:id',component: RentContractUpdateComponent},
+  {path: 'create',component: RentContractCreateComponent},
   {path: 'detail/:id',component: RentContractDetailComponent},
 ]
 
