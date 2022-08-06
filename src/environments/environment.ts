@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  siteURL:"http://flatyapi.geekyemeni.com/api/"
+  siteURL:"http://flatyapi.geekyemeni.com/api"
 };
 
 /*

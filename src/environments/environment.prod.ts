@@ -1,5 +1,5 @@
 export const environment = {
   production: true,
-  siteURL:"http://flatyapi.geekyemeni.com/api/"
+  siteURL:"http://flatyapi.geekyemeni.com/api"
 
 };

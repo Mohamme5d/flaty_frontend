@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { IUser } from '../models/user.model';
@@ -12,10 +12,25 @@ export class AuthService {
     private _http: HttpClient
   ) { }
 
+
+  getHeader() {
+    // let token = JSON.parse(localStorage.getItem("user-data") || "{}").token;
+    return {
+      "Content-Type": "application/json",
+      Accept: "application/json",
+      "Access-Control-Allow-Headers": "Content-Type",
+      "Access-Control-Allow-Origin": "*",
+      // token: token,
+    };
+  }
   login(username:string, password: string) {
      
     var body ={"email": username, "password": password}
-    return this._http.post<IServiceResponse<IUser>>(`${environment.siteURL}/Login`, body)
+    console.log(body)
+    return this._http.post<IServiceResponse<IUser>>(`${environment.siteURL}/user/login`, body,
+    {headers: new HttpHeaders(this.getHeader()), 
+
+    })
   }
 
   public get currentUserValue() {
