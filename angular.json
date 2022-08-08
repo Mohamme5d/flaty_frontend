@@ -162,7 +162,7 @@
   "defaultProject": "Flaty ",
   "schematics": {
     "@schematics/angular:component": {
-      "skipTests":true
+      "skipTests": true
     }
   },
   "cli": {
