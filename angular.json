@@ -159,7 +159,7 @@
       }
     }
   },
-  "defaultProject": "argon-dashboard-angular",
+  "defaultProject": "Flaty ",
   "schematics": {
     "@schematics/angular:component": {
       "skipTests": true

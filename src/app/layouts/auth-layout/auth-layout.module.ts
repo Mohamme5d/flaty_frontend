@@ -18,6 +18,7 @@ import { HttpClientModule } from '@angular/common/http';
     NgbModule,
     ClipboardModule,
     HttpClientModule,
+    ReactiveFormsModule,
   ],
   declarations: [
     LoginComponent,

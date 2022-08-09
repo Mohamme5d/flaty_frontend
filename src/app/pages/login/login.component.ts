@@ -1,6 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
+import { IServiceResponse } from 'src/app/shared/models/service.model';
+import { IUser } from 'src/app/shared/models/user.model';
 //import { ToastrService } from 'ngx-toastr';
 import { AuthService } from 'src/app/shared/services/user.service';
 
@@ -20,11 +23,8 @@ export class LoginComponent implements OnInit, OnDestroy {
   ) {
 
     this.loginForm = this._fb.group({
-      //email: ["", [Validators.required]],
-      //password: ["", [Validators.required]],
-
-       email: ["taha", [Validators.required]],
-       password: ["123456", [Validators.required]],
+      email: ["", [Validators.required]],
+      password: ["", [Validators.required]], 
     });
   }
 
@@ -33,17 +33,16 @@ export class LoginComponent implements OnInit, OnDestroy {
   ngOnDestroy() {
   }
 
-  login()
+ async login()
   {
-    
-      this._authService
-       .login(this.loginForm.value["email"], this.loginForm.value["password"])
-       .subscribe((response) => {
-        console.log(response);
-
-         if (response.status == 1) {
-           console.log(response);
-           localStorage.setItem("user-data", JSON.stringify(response.data));
+   
+  
+     var response=  await lastValueFrom(this._authService
+       .login(this.loginForm.value.email, this.loginForm.value.password))
+      
+          if (response.status == 1) {
+            console.log(JSON.stringify(response.data[0]))
+            localStorage.setItem("user-data", JSON.stringify(response.data[0]));
            this.router.navigate(["/dashboard"]);
          }
          else{
@@ -51,7 +50,7 @@ export class LoginComponent implements OnInit, OnDestroy {
           //  this.toastr.error("invalid Username And Password", 
           //  "error");
          }
-       });
+        
    }
   
 
