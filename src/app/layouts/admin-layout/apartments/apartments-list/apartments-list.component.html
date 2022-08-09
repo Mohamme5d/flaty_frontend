@@ -35,19 +35,19 @@
                 </tr>
               </thead>
               <tbody>
-                <tr>
+                <tr  *ngFor="let item of list">
                   <th scope="row">
                     <div class="media align-items-center">
                       <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                         <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
                       </a>
                       <div class="media-body">
-                        <span class="mb-0 text-sm">Argon Design System</span>
+                        <span class="mb-0 text-sm">{{item.name}}</span>
                       </div>
                     </div>
                   </th>
                   <td>
-                    $2,500 USD
+                   {{item.address}}
                   </td> 
                  
                   <td class="text-right">

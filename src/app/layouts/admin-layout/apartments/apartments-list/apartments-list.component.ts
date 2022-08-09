@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import Swal from 'sweetalert2';
-import 'sweetalert2/src/sweetalert2.scss';
+import { lastValueFrom } from 'rxjs';
+import { IApartment } from 'src/app/shared/models/apartment.model';
+import { ApartmentService } from 'src/app/shared/services/apartment.service';
 
 @Component({
   selector: 'app-apartments-list',
@@ -8,29 +9,22 @@ import 'sweetalert2/src/sweetalert2.scss';
   styleUrls: ['./apartments-list.component.css']
 })
 export class ApartmentsListComponent implements OnInit {
+  public loading = false;
+  list: IApartment[] = [];
+  constructor(
+    private _service: ApartmentService
 
-  constructor() { }
+  ) { }
 
   ngOnInit(): void {
-   
-  
+    this.getList();
+
   }
 
+ async getList() {
+   
+    this.list = await (await this._service.getAll({ limit: 100000 })).data;  
 
-  testAlert()
-  {
-    Swal.fire({
-      title: 'Do you want to create Apartment',
-      icon: 'question',
-      iconHtml: '؟',
-      confirmButtonText: 'Yes',
-    
-      cancelButtonText: 'No',
-      cancelButtonColor: 'red',
-      showCancelButton: true,
-      showCloseButton: true
-      
-    })
   }
 }
 
