@@ -15,7 +15,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/rent-payments/list', title: 'Rent payment',  icon:'ni-pin-3 text-orange', class: '' },
     { path: '/bank-deposit/list', title: 'bank deposit',  icon:'ni-single-02 text-yellow', class: '' },
     { path: '/expenses/list', title: 'Expenses',  icon:'ni-bullet-list-67 text-red', class: '' },
-    { path: '/monthly-report/list', title: 'Log',  icon:'ni-key-25 text-info', class: '' },
+    { path: '/login', title: 'login',  icon:'ni-key-25 text-info', class: '' },
     { path: '/Register', title: 'Registers',  icon:'ni-circle-08 text-pink', class: '' }
 ];
 

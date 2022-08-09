@@ -12,3 +12,5 @@ export const ApartmentsRoutes: Routes = [
     { path: 'update/:id',         component: ApartmentsUpdateComponent },
     { path: 'detail/:id',          component: ApartmentsDetailComponent },
  ];
+
+

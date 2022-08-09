@@ -13,6 +13,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 
 
+
+
 @NgModule({
   declarations: [
     ApartmentsListComponent,
@@ -28,6 +30,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+  
   ]
 })
 export class ApartmentsModule { }
+
