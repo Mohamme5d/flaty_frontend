@@ -6,7 +6,6 @@ import { IServiceResponse } from "../models/service.model";
 import { lastValueFrom } from "rxjs";
 import { IBankDeposit } from "../models/bank.deposit.mode";
  
-
 @Injectable({
   providedIn: "root",
 })
@@ -82,34 +81,34 @@ export class BankDepostService {
 //     return response;
 //   }
 
-//   async create(model: any) {
-//     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
-//       .post<IServiceResponse<IBankDeposit[]>>(
-//         `${environment.siteURL}/category/create`,
-//         model,
-//         {
-//           headers: new HttpHeaders(this.getHeader()),
-//         }
-//       ))
-//       .then()
-//       .catch((err) => {
-//         this.toastr.error(
-//           "an Error Occure!",
-//           "error"
-//         );
-//       });
+   async create(model: any) {
+     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+       .post<IServiceResponse<IBankDeposit[]>>(
+         `${environment.siteURL}/BankDeposit/Post`,
+         model,
+         {
+           headers: new HttpHeaders(this.getHeader()),
+         }
+       ))
+       .then()
+       .catch((err) => {
+         //this.toastr.error(
+           //"an Error Occure!",
+           //"error"
+        // );
+       });
 
        
-//     if (response.status == 5) {
+     if (response.status == 5) {
 //       this.toastr.error(
 //         "You are not authorized!",
 //         "error"
 //       );
-//     } else if (response.status != 1) {
+     } else if (response.status != 1) {
 //       this.toastr.error(response.message, response.title);
-//     }
-//     return response;
-//   }
+     }
+     return response;
+   }
 
 //   async update(model: any) {
 //     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http

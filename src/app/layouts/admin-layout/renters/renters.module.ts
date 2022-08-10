@@ -6,7 +6,7 @@ import { RentersUpdateComponent } from './renters-update/renters-update.componen
 import { RentersDetailComponent } from './renters-detail/renters-detail.component';
 import {  RouterModule, Routes } from "@angular/router";
 import { ClipboardDirective, ClipboardModule, ClipboardService } from 'ngx-clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { rentersRoute } from './renters.routing';
@@ -27,6 +27,7 @@ import { rentersRoute } from './renters.routing';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
   ],
 
 })

@@ -82,34 +82,34 @@ export class ExpensesService {
 //     return response;
 //   }
 
-//   async create(model: any) {
-//     var response = <IServiceResponse<IExpenses[]>>await lastValueFrom(this._http
-//       .post<IServiceResponse<IExpenses[]>>(
-//         `${environment.siteURL}/category/create`,
-//         model,
-//         {
-//           headers: new HttpHeaders(this.getHeader()),
-//         }
-//       ))
-//       .then()
-//       .catch((err) => {
-//         this.toastr.error(
-//           "an Error Occure!",
-//           "error"
-//         );
-//       });
+   async create(model: any) {
+     var response = <IServiceResponse<IExpenses[]>>await lastValueFrom(this._http
+       .post<IServiceResponse<IExpenses[]>>(
+         `${environment.siteURL}/ApratmentExpense`,
+         model,
+         {
+           headers: new HttpHeaders(this.getHeader()),
+         }
+       ))
+       .then()
+       .catch((err) => {
+         //this.toastr.error(
+           //"an Error Occure!",
+           //"error"
+         //);
+       });
 
        
-//     if (response.status == 5) {
+     if (response.status == 5) {
 //       this.toastr.error(
 //         "You are not authorized!",
 //         "error"
 //       );
-//     } else if (response.status != 1) {
+     } else if (response.status != 1) {
 //       this.toastr.error(response.message, response.title);
-//     }
-//     return response;
-//   }
+     }
+     return response;
+   }
 
 //   async update(model: any) {
 //     var response = <IServiceResponse<IExpenses[]>>await lastValueFrom(this._http

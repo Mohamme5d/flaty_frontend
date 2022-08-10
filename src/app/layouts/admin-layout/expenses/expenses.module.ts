@@ -6,7 +6,7 @@ import { ExpensesUpdateComponent } from './expenses-update/expenses-update.compo
 import { ExpensesCreateComponent } from './expenses-create/expenses-create.component';
 import { RouterModule } from '@angular/router';
 import { ClipboardModule } from 'ngx-clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule,ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { expenses } from './expenses.routing'
@@ -26,6 +26,7 @@ import { expenses } from './expenses.routing'
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
   ]
 })
 export class ExpensesModule { }

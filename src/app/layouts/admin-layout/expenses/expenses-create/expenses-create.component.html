@@ -6,14 +6,14 @@
             <h3 class="mb-0">Apartment Creat</h3>
           </div>
           <div class="col-4 text-right">
-            <a href="#!" class="btn  btn-primary">Save</a>
+            <a href="#!" class="btn  btn-primary" (click)="save()">Save</a>
             <a href="#!" class="btn  btn-secondary">Back</a>
 
           </div>
         </div>
       </div>
       <div class="card-body">
-        <form>
+        <form [formGroup]="form">
           <h6 class="heading-small text-muted mb-4">expenses information</h6>
           <div class="row">
             <div class="col-lg-6">

@@ -3,7 +3,6 @@ import { Injectable } from "@angular/core";
  import { environment } from "src/environments/environment";
 //import { ToastrService } from "ngx-toastr";
 import { IServiceResponse } from "../models/service.model";
-
 import { lastValueFrom } from "rxjs";
 import { IRenters } from "../models/renters.model";
  
@@ -83,16 +82,16 @@ export class RentersService {
 //     return response;
 //   }
 
-//   async create(model: any) {
-//     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
-//       .post<IServiceResponse<IRenters[]>>(
-//         `${environment.siteURL}/category/create`,
-//         model,
-//         {
-//           headers: new HttpHeaders(this.getHeader()),
-//         }
-//       ))
-//       .then()
+   async create(model: any) {
+     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
+       .post<IServiceResponse<IRenters[]>>(
+         `${environment.siteURL}/Renter/Post`,
+         model,
+         {
+           headers: new HttpHeaders(this.getHeader()),
+         }
+       ))
+       .then()
 //       .catch((err) => {
 //         this.toastr.error(
 //           "an Error Occure!",
@@ -101,16 +100,16 @@ export class RentersService {
 //       });
 
        
-//     if (response.status == 5) {
+    if (response.status == 5) {
 //       this.toastr.error(
 //         "You are not authorized!",
 //         "error"
 //       );
-//     } else if (response.status != 1) {
+     } else if (response.status != 1) {
 //       this.toastr.error(response.message, response.title);
-//     }
-//     return response;
-//   }
+     }
+     return response;
+  }
 
 //   async update(model: any) {
 //     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
@@ -170,3 +169,4 @@ export class RentersService {
 //     return response;
 //   }
 }
+
