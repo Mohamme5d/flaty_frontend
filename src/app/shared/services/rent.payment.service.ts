@@ -32,7 +32,7 @@ export class RentPaymentService {
   async getAll(filter: any) {
     var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
       .get<IServiceResponse<IRentPayment[]>>(
-        `${environment.siteURL}/IRentPayment/GetByUserID/0`, 
+        `${environment.siteURL}/RentPayment/GetByUserID/0`, 
         { headers: new HttpHeaders(this.getHeader()) }
       ))
       .then()

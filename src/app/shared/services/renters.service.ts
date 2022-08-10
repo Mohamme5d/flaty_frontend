@@ -31,7 +31,7 @@ export class RentersService {
   async getAll(filter: any) {
     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
       .get<IServiceResponse<IRenters[]>>(
-        `${environment.siteURL}/Apartment/GetByUserID/0`, 
+        `${environment.siteURL}/Renter/GetByUserID/1`, 
         { headers: new HttpHeaders(this.getHeader()) }
       ))
       .then()

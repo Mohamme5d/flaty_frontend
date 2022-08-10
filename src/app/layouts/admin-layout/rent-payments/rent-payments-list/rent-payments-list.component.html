@@ -108,13 +108,12 @@
             <table class="table align-items-center table-flush" >
               <thead class="thead-light">
                 <tr>
+                  <th scope="col">#</th>
+                  <th scope="col">Month</th>
                     <th scope="col">Renter Name</th>
                     <th scope="col">Rent Contract Name</th> 
                     <th scope="col">Amount</th>
-                    <th scope="col">Payment Date</th> 
-                    <th scope="col">Month</th>
-                    <th scope="col">Year</th> 
-                    <th scope="col">created On</th>  
+                    <th scope="col">Payment Date</th>  
                     <th scope="col"></th>
                 </tr>
               </thead>
@@ -131,34 +130,20 @@
                     </div>
                   </th>
                   <td>
-                   {{item.address}}
+                   {{item.month }} - {{item.year}}
                   </td> 
                   <td>
-                    {{item.address}}
+                    {{item.renterName}}
                    </td> 
                    <td>
-                    {{item.address}}
+                    {{item.rentContractName}}
                    </td> 
                    <td>
-                    {{item.address}}
+                    {{item.amount}}
                    </td> 
                    <td>
-                    {{item.address}}
-                   </td> 
-                   <td>
-                    {{item.address}}
-                   </td> 
-                   <td>
-                    {{item.address}}
-                   </td> 
-                   <td>
-                    {{item.address}}
-                   </td> 
-                   <td>
-                    {{item.address}}
-                   </td> 
-
-                 
+                    {{item.paymentDate}}
+                   </td>  
                   <td class="text-right">
                     <div ngbDropdown placement="bottom-right">
                       <a class="btn btn-sm btn-icon-only text-light"  ngbDropdownToggle>

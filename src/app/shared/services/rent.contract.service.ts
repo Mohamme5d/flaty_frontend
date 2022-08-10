@@ -31,7 +31,7 @@ export class RentContractServers {
   async getAll(filter: any) {
     var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
       .get<IServiceResponse<IRentContract[]>>(
-        `${environment.siteURL}/IRentContract/GetByUserID/0`, 
+        `${environment.siteURL}/RentContract/GetByUserID/1`, 
         { headers: new HttpHeaders(this.getHeader()) }
       ))
       .then()

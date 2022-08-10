@@ -30,7 +30,7 @@ export class ExpensesService {
   async getAll(filter: any) {
     var response = <IServiceResponse<IExpenses[]>>await lastValueFrom(this._http
       .get<IServiceResponse<IExpenses[]>>(
-        `${environment.siteURL}/BankDeposit/GetByUserID/0`, 
+        `${environment.siteURL}/ApratmentExpense/GetByUserID/0`, 
         { headers: new HttpHeaders(this.getHeader()) }
       ))
       .then()
