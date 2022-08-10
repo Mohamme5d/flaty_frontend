@@ -123,22 +123,41 @@
                     <th scope="col">Payment</th> 
                     <th scope="col"></th>
                 </tr>
-              </thead>
-              <tbody>
-                <tr>
+               ] <tbody>
+                <tr  *ngFor="let item of list">
                   <th scope="row">
                     <div class="media align-items-center">
                       <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
                         <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
                       </a>
                       <div class="media-body">
-                        <span class="mb-0 text-sm">Argon Design System</span>
+                        <span class="mb-0 text-sm">{{item.rentContractID}}</span>
                       </div>
                     </div>
                   </th>
-                  <td>
-                    $2,500 USD
-                  </td> 
+                  <div>
+                    <td>
+                      {{item.apartmentName}}
+                    </td>  
+                    <td>
+                     {{item.amount}}
+                    </td>  
+                    <td>
+                     {{item.startDate}}
+                    </td>  
+                    <td>
+                     {{item.endDate}}
+                    </td>  
+                    <td>
+                     {{item.renterName}}
+                    </td>  
+                    <td>
+                     {{item.totalAmount}}
+                    </td>  
+                    <td>
+                     {{item.payments}}
+                    </td>     
+                  </div>
                  
                   <td class="text-right">
                     <div ngbDropdown placement="bottom-right">
@@ -146,9 +165,9 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </a>
                       <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                        <a class="dropdown-item" href="javascript:void(0)">Action</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Another action</a>
-                        <a class="dropdown-item" href="javascript:void(0)">Something else here</a>
+                        <a class="dropdown-item" routerlink="/apartments/detail/1">Details</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Edit</a>
+                        <a class="dropdown-item" href="javascript:void(0)">Delete</a>
                       </div>
                     </div>
                   </td>

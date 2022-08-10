@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BankDepositService } from 'src/app/shared/services/bank-deposit.service';
+
 
 
 @Component({
@@ -9,7 +9,7 @@ import { BankDepositService } from 'src/app/shared/services/bank-deposit.service
 })
 export class BankDepositCreateComponent implements OnInit {
 
-  constructor( public bankDepositService:BankDepositService) 
+  constructor( ) 
   {
 
     
@@ -17,16 +17,7 @@ export class BankDepositCreateComponent implements OnInit {
 
   ngOnInit()
    {
-    this.bankDepositService.get_Bank_Deposit_info('https://www.breakingbadapi.com/api/')
-    .subscribe(
-      result => {
-        let response:any = result;
-        this.bankDepositService = response.bankDepositService
-        console.log(result);
-      },
-      error=> {
-        console.log(error);
-      }
-    );
+   
   }
+     
 }

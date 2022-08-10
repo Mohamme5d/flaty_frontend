@@ -1,6 +1,6 @@
 export interface IApartment {
-    ApartmentID?: number;
-    Name?:        string;
-    Address?:     string;
-    UserID?:      number;
+    apartmentID?: number;
+    name?:        string;
+    address?:     string;
+    userID?:      number;
 }
