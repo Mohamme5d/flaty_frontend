@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Form, FormBuilder, FormGroup } from '@angular/forms';
+import { IApartment } from 'src/app/shared/models/apartment.model';
 import { ApartmentService } from 'src/app/shared/services/apartment.service';
 
 @Component({
@@ -8,12 +10,36 @@ import { ApartmentService } from 'src/app/shared/services/apartment.service';
 })
 export class ApartmentsCreateComponent implements OnInit {
 
+  model: IApartment
+  form: FormGroup
   constructor(
-    private _service: ApartmentService
+    private _service: ApartmentService,
+    private fb : FormBuilder
+  ) { 
 
-  ) { }
+    this.model= {} as IApartment;
+    this.form = this.fb.group({
+      name: "",
+      address: "",
+    });
+  }
 
   ngOnInit(): void {
+  }
+
+
+ async save()
+  {
+    this.model.address= this.form.value.address;
+    this.model.name= this.form.value.name
+  var response=  await this._service.create(this.model);
+  
+  if(response.status==1)
+     alert("Done");
+  else
+  {
+    alert("error")
+  }
   }
 
 }
