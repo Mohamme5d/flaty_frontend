@@ -7,7 +7,7 @@ import { ApartmentsUpdateComponent } from './apartments-update/apartments-update
 import { RouterModule } from '@angular/router';
 import { ApartmentsRoutes } from './apartments.routing';
 import { ClipboardModule } from 'ngx-clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -30,6 +30,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
   
   ]
 })
