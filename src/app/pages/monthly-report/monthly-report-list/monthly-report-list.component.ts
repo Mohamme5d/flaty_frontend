@@ -1,4 +1,11 @@
 import { Component, OnInit } from '@angular/core';
+import { IMonthReport } from 'src/app/shared/models/month.report.model';
+import { MonthlyReportService } from 'src/app/shared/services/monthly.report.service';
+
+import {
+  formatNumber
+ }
+  from '@angular/common';
 
 @Component({
   selector: 'app-monthly-report-list',
@@ -7,9 +14,25 @@ import { Component, OnInit } from '@angular/core';
 })
 export class MonthlyReportListComponent implements OnInit {
 
-  constructor() { }
+  list: IMonthReport[]=[]
+  constructor(
+    private monthReportSerice: MonthlyReportService
+  ) { }
 
   ngOnInit(): void {
+    this.getList()
   }
+
+async getList()
+{
+  this.list= await (await this.monthReportSerice.getAll(null)).data
+}
+
+parseNumber(num?: number) {
+
+  if(num!= null)
+  return formatNumber(num, "en-GB", "2.1-1");
+  return 0;
+}
 
 }
