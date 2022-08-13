@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IRenters } from 'src/app/shared/models/renters.model';
 import { RentersService } from 'src/app/shared/services/renters.service';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-renters-create',
@@ -13,6 +15,7 @@ export class RentersCreateComponent implements OnInit {
   model: IRenters
   form: FormGroup
   constructor(
+    private router:Router,
     private _service: RentersService,
     private fb : FormBuilder
   ) { 
@@ -55,5 +58,18 @@ export class RentersCreateComponent implements OnInit {
     alert("error")
   }
   }
+
+  saveButton(){
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Rent Payment List has been created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )}
+  
 
 }

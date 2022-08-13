@@ -45,10 +45,10 @@ export class RentPaymentsListComponent implements OnInit {
         
       }
     }
-    )
-
-    
+    )   
   }
+
+  
 }
 
   

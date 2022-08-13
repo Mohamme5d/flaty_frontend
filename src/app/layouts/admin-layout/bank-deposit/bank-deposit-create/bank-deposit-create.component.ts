@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup,ReactiveFormsModule } from '@angular/forms';
 import { IBankDeposit } from 'src/app/shared/models/bank.deposit.mode';
 import { BankDepostService } from 'src/app/shared/services/bank.deposit.service';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 
 
@@ -15,6 +17,7 @@ export class BankDepositCreateComponent implements OnInit {
   model: IBankDeposit
   form: FormGroup
   constructor(
+    private router:Router,
     private _service: BankDepostService,
     private fb : FormBuilder
   ) { 
@@ -63,5 +66,18 @@ export class BankDepositCreateComponent implements OnInit {
     alert("error")
   }
   }
+  
+  saveButton(){
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Bank Deposit List has been created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )}
+  
 
 }

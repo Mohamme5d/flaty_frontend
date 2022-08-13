@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
 import { IExpenses } from 'src/app/shared/models/expenses.model';
 import { ExpensesService } from 'src/app/shared/services/expenses.services';
+import Swal from 'sweetalert2';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-expenses-create',
@@ -12,6 +14,7 @@ export class ExpensesCreateComponent implements OnInit {
   model: IExpenses
   form: FormGroup
   constructor(
+    private router: Router,
     private _service: ExpensesService,
     private fb : FormBuilder
   ) { 
@@ -34,6 +37,18 @@ export class ExpensesCreateComponent implements OnInit {
 
   ngOnInit() {
   }
+  saveButton(){
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Expensess List has been created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )}
+  
 
 
  async save()
@@ -58,5 +73,6 @@ export class ExpensesCreateComponent implements OnInit {
     alert("error")
   }
   }
+  
 
 }

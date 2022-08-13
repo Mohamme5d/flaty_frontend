@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 import { IApartment } from 'src/app/shared/models/apartment.model';
 import { ApartmentService } from 'src/app/shared/services/apartment.service';
+import Swal from 'sweetalert2';
+
 
 @Component({
   selector: 'app-apartments-create',
@@ -13,6 +16,7 @@ export class ApartmentsCreateComponent implements OnInit {
   model: IApartment
   form: FormGroup
   constructor(
+    private router:Router,
     private _service: ApartmentService,
     private fb : FormBuilder
   ) { 
@@ -26,6 +30,18 @@ export class ApartmentsCreateComponent implements OnInit {
 
   ngOnInit(): void {
   }
+  saveButton(){
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Aprtment List has been created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )}
+  
 
 
  async save()
