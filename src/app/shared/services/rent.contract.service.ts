@@ -55,6 +55,37 @@ export class RentContractServers {
     return response;
   }
 
+  async create(model: any) {
+    var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
+      .post<IServiceResponse<IRentContract[]>>(
+        `${environment.siteURL}/RentContract/post`,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+
+       
+    if (response.status == 5) {
+      // this.toastr.error(
+      //   "You are not authorized!",
+      //   "error"
+      // );
+    } else if (response.status != 1) {
+      //this.toastr.error(response.message, response.title);
+    }
+    return response;
+  }
+
+
+
 //   async getById(id: string) {
 //     var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
 //       .get<IServiceResponse<IRentContract[]>>(

@@ -15,8 +15,13 @@
             <h3 class="mb-0">Renter Creat</h3>
           </div>
           <div class="col-4 text-right">
+<<<<<<< HEAD:src/app/layouts/admin-layout/renters/renters-create/renters-create.component.html
             <a  class="btn  btn-primary"(click)="saveButton()">Save</a>
             <a  class="btn  btn-secondary" routerLink="/renters/list">Back</a>
+=======
+            <a  class="btn  btn-primary" (click)="save()">Save</a>
+            <a routerLink="/renters/list" class="btn  btn-secondary">Back</a>
+>>>>>>> e569a9aa7940fef7e545922087cb87f73bf04714:src/app/pages/renters/renters-create/renters-create.component.html
 
           </div>
         </div>
@@ -28,58 +33,41 @@
             <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" >Renter ID</label>
-                  <input type="text" class="form-control form-control-alternative" placeholder="Enter Renter ID">
+                  <input type="text" class="form-control form-control-alternative" formControlName="id" placeholder="Enter Renter ID">
                 </div>
               </div>
             <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" >Renter Name</label>
-                  <input type="text" class="form-control form-control-alternative" placeholder="Enter Renter Name">
+                  <input type="text" class="form-control form-control-alternative" formControlName="name" placeholder="Enter Renter Name">
                 </div>
               </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Mobile No</label>
-                <input type="tel" class="form-control form-control-alternative" placeholder="Enter Mobile">
+                <input type="tel" class="form-control form-control-alternative" formControlName="mobile" placeholder="Enter Mobile">
               </div>
             </div>
             
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Adress</label>
-                <input type="text"  class="form-control form-control-alternative" placeholder="Enter Adress" >
+                <input type="text"  class="form-control form-control-alternative" formControlName="address" placeholder="Enter Adress" >
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Desc</label>
-                <input type="text"  class="form-control form-control-alternative" placeholder="Enter Desc" >
+                <input type="text"  class="form-control form-control-alternative" formControlName="desc" placeholder="Enter Desc" >
                 <p></p>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Old Blance</label>
-                <input type="number"  class="form-control form-control-alternative" placeholder="Enter Old Blance" >
+                <input type="number"  class="form-control form-control-alternative" formControlName="oldBalance" placeholder="Enter Old Blance" >
               </div>
-            </div>
-            <div class="col-lg-4">
-              <div class="form-group">
-                <label >Currency</label>
-                <input type="text"  class="form-control form-control-alternative"  placeholder=" Enter Currency"  >
-              </div>
-            </div>
-            
-
-             
-            <div class="float-left">
-                <a type="button" routerLink="/renters/list" class="btn btn-primary">Create</a>
-            </div>
-              
-            
-            
-           
-            
+            </div> 
           </div>
         </form>
       </div>
