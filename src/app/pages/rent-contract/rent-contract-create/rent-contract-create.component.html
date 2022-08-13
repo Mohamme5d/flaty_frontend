@@ -1,0 +1,83 @@
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+  <div class="container-fluid">
+    <div class="header-body">
+      <!-- Card stats -->
+     
+    </div>
+  </div>
+</div>
+<div class="container-fluid mt--7">  
+     
+
+        <div class="card bg-secondary shadow">
+          <div class="card-header bg-white border-0">
+            <div class="row align-items-center">
+              <div class="col-8">
+                <h3 class="mb-0">Rent Contract Creat</h3>
+              </div>
+              
+            </div>
+          </div>
+          <div class="card-body">
+            <form [formGroup]="form">
+              <h6 class="heading-small text-muted mb-4">Contract information</h6>
+              <div class="row">
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-first-name">Apartment </label>
+
+
+                    <select    class="form-control form-control-alternative form-select "    formControlName="apartmentID"  placeholder="Select Apartment">
+                      <option *ngFor="let item of apartmentList" [value]="item.apartmentID" >{{item.name}}</option>
+                   </select> 
+
+                   </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name">Renter </label>
+                    <select    class="form-control form-control-alternative form-select "    formControlName="renterID"  placeholder="Select Renter">
+                      <option *ngFor="let item of renterList" [value]="item.renterID" >{{item.name}}</option>
+                   </select>
+                   </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name" >Amount</label>
+                    <input type="number"  class="form-control form-control-alternative" formControlName="amount" placeholder="Enter Amount" >
+                  </div>
+                </div>
+                
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label class="form-control-label" for="input-last-name" >Start Date</label>
+                    <input type="date"  class="form-control form-control-alternative" formControlName="startDate" placeholder="Start Date" >
+                  </div>
+                </div>
+                <div class="col-lg-4">
+                  <div class="form-group">
+                    <label >End Date</label>
+                    <input type="date"  class="form-control form-control-alternative" formControlName="endDate"  >
+                  </div>
+                </div>
+
+
+               
+                  
+              
+                
+               
+                
+              </div>
+            </form>
+          </div>
+          <div class="card-footer">
+            <div class="col-4 text-right">
+              <a  class="btn  btn-primary" (click)="save()">Save</a>
+              <a routerLink="/rent-contacts/list" class="btn  btn-secondary">Back</a>
+
+            </div>
+          </div>
+        </div>
+    
+  

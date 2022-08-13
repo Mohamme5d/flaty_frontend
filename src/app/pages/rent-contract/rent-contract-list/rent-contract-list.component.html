@@ -35,22 +35,20 @@
                     <th scope="col">End date</th>
                     <th scope="col">Renter Name</th> 
                     <th scope="col">Total Amount</th> 
-                    <th scope="col">Payment</th> 
+                    <th scope="col">Paid Amount</th> 
                     <th scope="col"></th>
                 </tr>
                <tbody>
                 <tr  *ngFor="let item of list">
                   <th scope="row">
                     <div class="media align-items-center">
-                      <a href="javascript:void(0)" class="avatar rounded-circle mr-3">
-                        <img alt="Image placeholder" src="../assets/img/theme/bootstrap.jpg">
-                      </a>
+                    
                       <div class="media-body">
                         <span class="mb-0 text-sm">{{item.rentContractID}}</span>
                       </div>
                     </div>
                   </th>
-                  <div>
+                 
                     <td>
                       {{item.apartmentName}}
                     </td>  
@@ -72,7 +70,7 @@
                     <td>
                      {{item.payments}}
                     </td>     
-                  </div>
+                  
                  
                   <td class="text-right">
                     <div ngbDropdown placement="bottom-right">

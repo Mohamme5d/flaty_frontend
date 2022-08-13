@@ -7,10 +7,10 @@ import { RentContractListComponent } from './rent-contract-list/rent-contract-li
 import { RouterModule,Routes } from '@angular/router';
 import { rent_contract } from './rent-contract.routing'
 import { ClipboardModule } from 'ngx-clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-
+ 
 
 
 @NgModule({
@@ -28,6 +28,9 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    //NgSelectModule,
+    ReactiveFormsModule,
+
     
   ]
 })
