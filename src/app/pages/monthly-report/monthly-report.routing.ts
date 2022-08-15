@@ -8,5 +8,5 @@ import { MonthlyReportListComponent } from "./monthly-report-list/monthly-report
 
 export const monthly_report: Routes=[
     {path: 'list',component: MonthlyReportListComponent},
-    {path: 'detail',component: MonthlyReportDetailComponent},
+    {path: 'detail/:{month}/:{year}',component: MonthlyReportDetailComponent},
   ]
