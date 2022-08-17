@@ -56,6 +56,34 @@ export class RentPaymentService {
     return response;
   }
 
+  async create(model: any) {
+    var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
+      .post<IServiceResponse<IRentPayment[]>>(
+        `${environment.siteURL}/RentPayment/post`,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+
+       
+    if (response.status == 5) {
+      // this.toastr.error(
+      //   "You are not authorized!",
+      //   "error"
+      // );
+    } else if (response.status != 1) {
+      //this.toastr.error(response.message, response.title);
+    }
+    return response;
+  }
 //   async getById(id: string) {
 //     var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
 //       .get<IServiceResponse<IRentPayment[]>>(
