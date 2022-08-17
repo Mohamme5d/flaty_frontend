@@ -14,10 +14,13 @@ export class AuthGuard implements CanActivate {
     let token = JSON.parse(localStorage.getItem("user-data") || "{}").token;
 
     if (token) {
-      // this._router.navigate(["/dashboard"])
-      return true;
+      let tokenExpireDate = JSON.parse(localStorage.getItem("user-data") || "{}").tokenExpireDate;
+
+      if(tokenExpireDate!= null && Date.parse(tokenExpireDate)> Date.now())
+        return true;
     }
- 
+    
+    localStorage.clear();
     this._router.navigate(["/login"])
     return false;
   }
