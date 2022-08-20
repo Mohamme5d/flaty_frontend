@@ -7,7 +7,7 @@ import { RentPaymentsUpdateComponent } from './rent-payments-update/rent-payment
 import { rent_payment} from './rent-pyments.routing';
 import { RouterModule } from '@angular/router';
 import { ClipboardModule } from 'ngx-clipboard';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
@@ -26,6 +26,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     HttpClientModule,
     NgbModule,
+    ReactiveFormsModule,
+
   ]
 })
 export class RentPaymentsModule { }
