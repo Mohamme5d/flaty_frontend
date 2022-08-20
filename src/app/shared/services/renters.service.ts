@@ -54,6 +54,33 @@ export class RentersService {
     return response;
   }
 
+  async getByID(id: any) {
+    var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
+      .get<IServiceResponse<IRenters[]>>(
+        `${environment.siteURL}/Renter/GetByID/`+id, 
+        { headers: new HttpHeaders(this.getHeader()) }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+
+       console.log(response);
+
+    if (response.status == 5) {
+    //   this.toastr.error(
+    //     "You are not authorized!",
+    //     "error"
+    //   );
+    } else if (response.status != 1) {
+      //this.toastr.error(response.message, response.title);
+    }
+    return response;
+  }
+
 //   async getById(id: string) {
 //     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
 //       .get<IServiceResponse<IRenters[]>>(
@@ -110,6 +137,64 @@ export class RentersService {
      }
      return response;
   }
+
+  async update(model: any) {
+    var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
+      .put<IServiceResponse<IRenters[]>>(
+        `${environment.siteURL}/Renter/Put/`+ model.renterID,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+ }
+
+
+  async delete(id: number) {
+    var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
+      .delete<IServiceResponse<IRenters[]>>(
+        `${environment.siteURL}/Renter/delete/`+id, 
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+ }
 
 //   async update(model: any) {
 //     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http

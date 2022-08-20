@@ -14,15 +14,9 @@
           <div class="col-8">
             <h3 class="mb-0">Renter Creat</h3>
           </div>
-          <div class="col-4 text-right">
-<<<<<<< HEAD:src/app/layouts/admin-layout/renters/renters-create/renters-create.component.html
-            
-            <a  class="btn  btn-secondary" routerLink="/renters/list">Back</a>
-=======
+          <div class="col-4 text-right"> 
             <a  class="btn  btn-primary" (click)="save()">Save</a>
-            <a routerLink="/renters/list" class="btn  btn-secondary">Back</a>
->>>>>>> e569a9aa7940fef7e545922087cb87f73bf04714:src/app/pages/renters/renters-create/renters-create.component.html
-
+            <a routerLink="/renters/list" class="btn  btn-secondary">Back</a> 
           </div>
         </div>
       </div>
@@ -32,20 +26,35 @@
           <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
-                  <label class="form-control-label" >Renter ID</label>
+                  <label class="form-control-label" >National ID</label>
                   <input type="text" class="form-control form-control-alternative" formControlName="id" placeholder="Enter Renter ID">
+                  <div *ngIf="form.controls['id'].invalid && form.controls['id'].touched" class="text-danger">
+                    <div *ngIf="form.controls['id'].errors.required">
+                    ID is required.
+                  </div>
+                </div>
                 </div>
               </div>
             <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" >Renter Name</label>
-                  <input type="text" class="form-control form-control-alternative" formControlName="name" placeholder="Enter Renter Name">
+                  <input type="text" id="name" class="form-control form-control-alternative" formControlName="name" placeholder="Enter Renter Name"> 
+                  <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="text-danger">
+                    <div *ngIf="form.controls['name'].errors.required">
+                    Name is required.
+                  </div>
+                </div>
                 </div>
               </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Mobile No</label>
                 <input type="tel" class="form-control form-control-alternative" formControlName="mobile" placeholder="Enter Mobile">
+                <div *ngIf="form.controls['mobile'].invalid && form.controls['mobile'].touched" class="text-danger">
+                  <div *ngIf="form.controls['mobile'].errors.required">
+                    Mobile is required.
+                </div>
+              </div>
               </div>
             </div>
             
@@ -53,12 +62,22 @@
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Adress</label>
                 <input type="text"  class="form-control form-control-alternative" formControlName="address" placeholder="Enter Adress" >
+                <div *ngIf="form.controls['address'].invalid && form.controls['address'].touched" class="text-danger">
+                  <div *ngIf="form.controls['address'].errors.required">
+                    Adress is required.
+                </div>
+              </div>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Desc</label>
                 <input type="text"  class="form-control form-control-alternative" formControlName="desc" placeholder="Enter Desc" >
+                <div *ngIf="form.controls['desc'].invalid && form.controls['desc'].touched" class="text-danger">
+                  <div *ngIf="form.controls['desc'].errors.required">
+                    Desc is required.
+                </div>
+              </div>
                 <p></p>
               </div>
             </div>
@@ -66,6 +85,11 @@
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Old Blance</label>
                 <input type="number"  class="form-control form-control-alternative" formControlName="oldBalance" placeholder="Enter Old Blance" >
+                <div *ngIf="form.controls['oldBalance'].invalid && form.controls['oldBalance'].touched" class="text-danger">
+                  <div *ngIf="form.controls['oldBalance'].errors.required">
+                    old Balance is required.
+                </div>
+              </div>
               </div>
             </div> 
           </div>

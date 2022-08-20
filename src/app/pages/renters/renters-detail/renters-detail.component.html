@@ -1,1 +1,69 @@
-<p>renters-detail works!</p>
+<div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
+    <div class="container-fluid">
+      <div class="header-body">
+        <!-- Card stats -->
+       
+      </div>
+    </div>
+  </div>
+  <div class="container-fluid mt--7">  
+  
+      <div class="card bg-secondary shadow">
+        <div class="card-header bg-white border-0">
+          <div class="row align-items-center">
+            <div class="col-8">
+              <h3 class="mb-0">Renter Creat</h3>
+            </div>
+            <div class="col-4 text-right"> 
+              <a  class="btn  btn-primary" (click)="save()">Save</a>
+              <a routerLink="/renters/list" class="btn  btn-secondary">Back</a> 
+            </div>
+          </div>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="form">
+            <h6 class="heading-small text-muted mb-4">Renters information</h6>
+            <div class="row">
+              <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" >Renter ID</label>
+                    <input type="text" class="form-control form-control-alternative" formControlName="id" placeholder="Enter Renter ID">
+                  </div>
+                </div>
+              <div class="col-lg-6">
+                  <div class="form-group">
+                    <label class="form-control-label" >Renter Name</label>
+                    <input type="text" class="form-control form-control-alternative" formControlName="name" placeholder="Enter Renter Name">
+                  </div>
+                </div>
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-first-name">Mobile No</label>
+                  <input type="tel" class="form-control form-control-alternative" formControlName="mobile" placeholder="Enter Mobile">
+                </div>
+              </div>
+              
+              <div class="col-lg-6">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-last-name">Adress</label>
+                  <input type="text"  class="form-control form-control-alternative" formControlName="address" placeholder="Enter Adress" >
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-last-name">Desc</label>
+                  <input type="text"  class="form-control form-control-alternative" formControlName="desc" placeholder="Enter Desc" >
+                  <p></p>
+                </div>
+              </div>
+              <div class="col-lg-4">
+                <div class="form-group">
+                  <label class="form-control-label" for="input-last-name">Old Blance</label>
+                  <input type="number"  class="form-control form-control-alternative" formControlName="oldBalance" placeholder="Enter Old Blance" >
+                </div>
+              </div> 
+            </div>
+          </form>
+        </div>
+      </div>
+  
