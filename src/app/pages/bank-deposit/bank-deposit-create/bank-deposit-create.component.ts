@@ -46,7 +46,6 @@ export class BankDepositCreateComponent implements OnInit {
     this.model.exchangeRate= this.form.value.exchangeRate
     this.model.reciptNo= this.form.value.reciptNo;
     this.model.date= this.form.value.date
-
     this.model.month= this.form.value.month;
     this.model.year= this.form.value.year
     this.model.notes= this.form.value.notes;
@@ -59,15 +58,7 @@ export class BankDepositCreateComponent implements OnInit {
   
   if(response.status==1)
   
-    alert("Done");
-  
-  else
   {
-    alert("error")
-  }
-  }
-  
-  saveButton(){
     Swal.fire({
       
       position: 'top-end',
@@ -78,6 +69,22 @@ export class BankDepositCreateComponent implements OnInit {
     }
   
   )}
+  
+  else
+  {
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Bank Deposit List has been created',
+      showConfirmButton: false,
+      timer: 1500
+    })
+  }
+  }
+  
+  
+  
   
 
 }

@@ -139,15 +139,26 @@ export class BankDepostService {
 //     return response;
 //   }
 
+//Delete(id:number)
+//{
+  //return this._http.delete<any>("http://flatyapi.geekyemeni.com/api/BankDeposit/Delete/0"+ id);
 
-//   async delete(id: string) {
-//     var response = <any>await lastValueFrom(this._http
-//       .delete<IServiceResponse<IBankDeposit[]>>(
-//         `${environment.siteURL}/category/delete/?id=${id}`,
-//         {
-//           headers: new HttpHeaders(this.getHeader()),
-//         }
-//       ))
+//}
+
+//Update(data:any,id:number)
+//{
+  //return this._http.put<any>("http://flatyapi.geekyemeni.com/api/BankDeposit/Put/0"+ id,data);
+
+//}
+   async delete(id: string) {
+     var response = <any>await lastValueFrom(this._http
+       .delete<IServiceResponse<IBankDeposit[]>>(
+         `${environment.siteURL}/api/BankDeposit/Delete/0`,
+         {
+           headers: new HttpHeaders(this.getHeader()),
+         }
+       ))
+        }
 //       .then()
 //       .catch((err) => {
 //         this.toastr.error(

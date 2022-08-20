@@ -52,14 +52,7 @@ export class RentersCreateComponent implements OnInit {
   var response=  await this._service.create(this.model);
   
   if(response.status==1)
-     alert("Done");
-  else
   {
-    alert("error")
-  }
-  }
-
-  saveButton(){
     Swal.fire({
       
       position: 'top-end',
@@ -70,6 +63,13 @@ export class RentersCreateComponent implements OnInit {
     }
   
   )}
+  else
+  {
+    alert("error")
+  }
+  }
+
+  
   
 
 }
