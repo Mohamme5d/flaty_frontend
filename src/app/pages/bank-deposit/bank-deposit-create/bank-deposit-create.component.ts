@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup,ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup,ReactiveFormsModule, Validators } from '@angular/forms';
 import { IBankDeposit } from 'src/app/shared/models/bank.deposit.mode';
 import { BankDepostService } from 'src/app/shared/services/bank.deposit.service';
 import Swal from 'sweetalert2';
@@ -24,12 +24,18 @@ export class BankDepositCreateComponent implements OnInit {
 
     this.model= {} as IBankDeposit;
     this.form = this.fb.group({
-      bankDepositID: "",
-      amount: "",
-      reciptNo: "",
-      date: "",
-      month: "",
-      notes: "",
+     // bankDepositID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      amount: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      reciptNo: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      date: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      month: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      notes: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      year: "",
+      exchangeRate:"",
+      currencyCode:"",
+
+
+
       
     });
   }
@@ -40,7 +46,10 @@ export class BankDepositCreateComponent implements OnInit {
 
  async save()
   {
-    this.model.bankDepositID= this.form.value.bankDepositID;
+  //  if(this.form.valid){
+
+    
+   // this.model.bankDepositID= this.form.value.bankDepositID;
     this.model.amount= this.form.value.amount
     this.model.currencyCode= this.form.value.currencyCode;
     this.model.exchangeRate= this.form.value.exchangeRate
@@ -49,9 +58,10 @@ export class BankDepositCreateComponent implements OnInit {
     this.model.month= this.form.value.month;
     this.model.year= this.form.value.year
     this.model.notes= this.form.value.notes;
-    this.model.createdOn= this.form.value.createdOn
-    this.model.userID= this.form.value.userID;
-    this.model.isClosed= this.form.value.isClosed;
+    this.model.createdOn= new Date()
+   // this.model.userID= this.form.value.userID;
+   // this.model.isClosed= this.form.value.isClosed;
+    console.log(this.model)
 
     
   var response=  await this._service.create(this.model);
@@ -75,12 +85,13 @@ export class BankDepositCreateComponent implements OnInit {
     Swal.fire({
       
       position: 'top-end',
-      icon: 'success',
-      title: 'Your New Bank Deposit List has been created',
+      icon: 'error',
+      title: 'Your New Bank Deposit  has NOT created',
       showConfirmButton: false,
       timer: 1500
     })
   }
+//}
   }
   
   

@@ -59,7 +59,7 @@ export class RentPaymentService {
   async create(model: any) {
     var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
       .post<IServiceResponse<IRentPayment[]>>(
-        `${environment.siteURL}/RentPayment/post`,
+        `${environment.siteURL}/RentPayment/Post`,
         model,
         {
           headers: new HttpHeaders(this.getHeader()),
@@ -84,6 +84,123 @@ export class RentPaymentService {
     }
     return response;
   }
+
+  async getByID(id: any) {
+    var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
+      .get<IServiceResponse<IRentPayment[]>>(
+        `${environment.siteURL}/RentPayment/GetByID/`+id, 
+        { headers: new HttpHeaders(this.getHeader()) }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+      console.log(response);
+
+      if (response.status == 5) {
+      //   this.toastr.error(
+      //     "You are not authorized!",
+      //     "error"
+      //   );
+      } else if (response.status != 1) {
+        //this.toastr.error(response.message, response.title);
+      }
+      return response;
+
+  }
+
+
+//   async getById(id: string) {
+//     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+//       .get<IServiceResponse<IBankDeposit[]>>(
+//         `${environment.siteURL}/category/GetByID/?id=${id}`,
+//         {
+//           headers: new HttpHeaders(this.getHeader()),
+//         }
+//       ))
+//       .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+       
+//     if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+//     } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+//     }
+//     return response;
+//   }
+
+  
+   
+
+   async update(model: any) {
+    var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
+      .put<IServiceResponse<IRentPayment[]>>(
+        `${environment.siteURL}/RentPayment/Put/`+ model.rentPaymentID,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+   }
+
+   async delete(id: number) {
+    var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
+      .delete<IServiceResponse<IRentPayment[]>>(
+        `${environment.siteURL}/RentPayment/delete/`+id, 
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+ }
+
 //   async getById(id: string) {
 //     var response = <IServiceResponse<IRentPayment[]>>await lastValueFrom(this._http
 //       .get<IServiceResponse<IRentPayment[]>>(

@@ -14,44 +14,51 @@ import Swal from "sweetalert2";
 })
 export class RentPaymentsCreateComponent implements OnInit {
   form: FormGroup;
-  contractsList: IRentContract[] = [];
+  model: IRentPayment;
+  //contractsList: IRentContract[] = [];
+  
 
   constructor(
     private router: Router,
     private fb: FormBuilder,
     private contractService: RentContractServers,
-    private paymentService: RentPaymentService,
+    private _service: RentPaymentService
+
   ) {
+    this.model= {} as IRentPayment;
     this.form = this.fb.group({
+      
       rentContractID: "",
       amount: "",
-      paymentDate: "",
+      
+      paymentDate:"",
       month: new Date().getMonth() + 1,
       year: new Date().getFullYear(),
     });
 
-    this.getLockups();
+ //   this.getLockups();
   }
 
-  async getLockups() {
-    this.contractsList = await (await this.contractService.getAll(null)).data;
-    this.contractsList = this.contractsList.filter((e) => e.isActive == true);
-  }
+  //async getLockups() {
+    //this.contractsList = await (await this.contractService.getAll(null)).data;
+    //this.contractsList = this.contractsList.filter((e) => e.isActive == true);
+ // }
 
   ngOnInit(): void {}
-  async saveButton() {
+  async save() {
     var model = {} as IRentPayment;
-
+    
+    model.rentContractID = Number(this.form.value.rentContractID);
     model.amount = Number(this.form.value.amount);
-    model.paymentDate = this.form.value.paymentDate;
-    model.year = Number(this.form.value.year);
     model.month = Number(this.form.value.month);
-    model.rentContractID= Number(this.form.value.rentContractID)
-    model.createdOn=  new Date() 
-    var response = await this.paymentService.create(model);
+    model.paymentDate= this.form.value.paymentDate;
+    model.year= this.form.value.year; 
+    
    
     console.log(model)
-     console.log(response)
+
+    var response=  await this._service.create(this.model);
+     
     if (response.status == 1) {
       Swal.fire({
         position: "top-end",

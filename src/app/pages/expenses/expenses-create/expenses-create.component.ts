@@ -35,22 +35,8 @@ export class ExpensesCreateComponent implements OnInit {
     });
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
   }
-  saveButton(){
-    Swal.fire({
-      
-      position: 'top-end',
-      icon: 'success',
-      title: 'Your New Expensess List has been created',
-      showConfirmButton: false,
-      timer: 1500
-    }
-  
-  )}
-  
-
-
  async save()
   {
     this.model.apratmentExpenseID= this.form.value.apratmentExpenseID;
@@ -64,13 +50,34 @@ export class ExpensesCreateComponent implements OnInit {
     this.model.userID= this.form.value.userID;
     this.model.isClosed= this.form.value.isClosed;
     var response = await this._service.create(this.model);
+    console.log(this.model)
    
   
   if(response.status==1)
-     alert("Done");
+     {
+      Swal.fire({
+      
+        position: 'top-end',
+        icon: 'success',
+        title: 'Your New Apratment Expense info has been created',
+        showConfirmButton: false,
+        timer: 1500
+      }
+    
+    )
+     }
   else
   {
-    alert("error")
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'error',
+      title: 'Your New Apratment Expense info has NOT created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )
   }
   }
   

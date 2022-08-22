@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
+import { EmailValidator, FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IRenters } from 'src/app/shared/models/renters.model';
 import { RentersService } from 'src/app/shared/services/renters.service';
 import { Router } from '@angular/router';
@@ -15,6 +15,9 @@ export class RentersCreateComponent implements OnInit {
 
   model: IRenters
   form: FormGroup
+  valid=new FormGroup({
+    email: new FormControl('', Validators.required),
+  })
   constructor(
     private router:Router,
     private _service: RentersService,

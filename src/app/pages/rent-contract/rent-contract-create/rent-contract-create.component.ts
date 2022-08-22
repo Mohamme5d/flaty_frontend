@@ -29,11 +29,11 @@ export class RentContractCreateComponent implements OnInit {
     this.getLockups()
 
     this.form= this.fb.group({
-      "renterID": "",
-      "amount": 0,
-      "apartmentID": "",
-      "startDate": "",
-      "endDate": "",
+      renterID: "",
+      amount: 0,
+      apartmentID: "",
+      startDate: "",
+      endDate: "",
     })
    }
 
@@ -51,7 +51,6 @@ export class RentContractCreateComponent implements OnInit {
     model.amount= Number(this.form.value.amount)
     model.startDate= (this.form.value.startDate)
     model.endDate= (this.form.value.endDate)
-
     model.renterID= Number(this.form.value.renterID)
     model.apartmentID= Number(this.form.value.apartmentID)
 
@@ -59,22 +58,30 @@ export class RentContractCreateComponent implements OnInit {
 
     console.log(response)
     if(response.status==1)
-    {
-      Swal.fire({ 
-        icon: 'success',
-        title: 'Your work has been saved',
-        showConfirmButton: false,
-        timer: 1500
-      })
+  
+  {
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your New Rent Contract has been created',
+      showConfirmButton: false,
+      timer: 1500
     }
-    else
-    {
-      Swal.fire({
-        icon: 'error',
-        title: 'Oops...',
-        text: 'Something went wrong!',
-       })
-    }
+  
+  )}
+  
+  else
+  {
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'error',
+      title: 'Your New Rent Contract  has NOT created',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
-
+//}
+  }
 }

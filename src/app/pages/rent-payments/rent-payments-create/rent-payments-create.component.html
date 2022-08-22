@@ -1,14 +1,10 @@
 <div class="header bg-gradient-danger pb-8 pt-5 pt-md-8">
   <div class="container-fluid">
     <div class="header-body">
-     
-      
-     
     </div>
   </div>
 </div>
 <div class="container-fluid mt--7"></div>
-  
   <div class="card bg-secondary shadow">
     <div class="card-header bg-white border-0">
       <div class="row align-items-center">
@@ -16,9 +12,8 @@
           <h3 class="mb-0">Rent Payment Creat</h3>
         </div>
         <div class="col-4 text-right">
-          <a  class="btn  btn-primary"(click)="saveButton()">Save</a>
+          <a  class="btn  btn-primary"(click)="save()">Save</a>
           <a  class="btn  btn-secondary" routerLink="/rent-payments/list" >Back</a>
-
         </div>
       </div>
     </div>
@@ -29,21 +24,15 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label class="form-control-label" for="input-first-name">Rent Contract ID</label>
-          
-              <select    class="form-control form-control-alternative form-select "    formControlName="rentContractID"  placeholder="Select Contract">
-                <option *ngFor="let item of contractsList" [value]="item.rentContractID" >{{item.name}}</option>
-             </select> 
-          
+              <input type="number"    class="form-control form-control-alternative form-select "    formControlName="rentContractID"  placeholder="Select Contract">
             </div>
           </div>
-          
           <div class="col-lg-6">
             <div class="form-group">
               <label class="form-control-label" for="input-last-name">Amount</label>
               <input type="number" formControlName="amount"  class="form-control form-control-alternative" placeholder="Enter Amount" >
             </div>
-          </div>
-        
+          </div>      
           <div class="col-lg-6">
             <div class="form-group">
               <label class="form-control-label" for="input-last-name">Pyment Date</label>

@@ -52,6 +52,33 @@ export class BankDepostService {
     }
     return response;
   }
+  async getByID(id: any) {
+    var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+      .get<IServiceResponse<IBankDeposit[]>>(
+        `${environment.siteURL}/BankDeposit/GetByID/`+id, 
+        { headers: new HttpHeaders(this.getHeader()) }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+      console.log(response);
+
+      if (response.status == 5) {
+      //   this.toastr.error(
+      //     "You are not authorized!",
+      //     "error"
+      //   );
+      } else if (response.status != 1) {
+        //this.toastr.error(response.message, response.title);
+      }
+      return response;
+
+  }
+
 
 //   async getById(id: string) {
 //     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
@@ -109,6 +136,66 @@ export class BankDepostService {
      }
      return response;
    }
+   
+
+   async update(model: any) {
+    var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+      .put<IServiceResponse<IBankDeposit[]>>(
+        `${environment.siteURL}/BankDeposit/Put/`+ model.bankDepositID,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+   }
+
+   async delete(id: number) {
+    var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+      .delete<IServiceResponse<IBankDeposit[]>>(
+        `${environment.siteURL}/BankDeposit/delete/`+id, 
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+ }
+
+
 
 //   async update(model: any) {
 //     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
@@ -150,15 +237,7 @@ export class BankDepostService {
   //return this._http.put<any>("http://flatyapi.geekyemeni.com/api/BankDeposit/Put/0"+ id,data);
 
 //}
-   async delete(id: string) {
-     var response = <any>await lastValueFrom(this._http
-       .delete<IServiceResponse<IBankDeposit[]>>(
-         `${environment.siteURL}/api/BankDeposit/Delete/0`,
-         {
-           headers: new HttpHeaders(this.getHeader()),
-         }
-       ))
-        }
+  
 //       .then()
 //       .catch((err) => {
 //         this.toastr.error(

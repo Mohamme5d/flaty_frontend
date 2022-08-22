@@ -9,5 +9,5 @@ export const rent_payment: Routes=[
     {path: 'list',component: RentPaymentsListComponent},
     {path: 'create',component: RentPaymentsCreateComponent},
     {path: 'update',component: RentPaymentsUpdateComponent},
-    {path: 'detail',component: RentPaymentsDetailComponent},
+    {path: 'detail/:id',component: RentPaymentsDetailComponent},
   ]

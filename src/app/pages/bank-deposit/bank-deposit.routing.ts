@@ -8,6 +8,6 @@ import { BankDepositUpdateComponent } from "./bank-deposit-update/bank-deposit-u
 export const bank_depoist: Routes=[
     {path: 'list',component: BankDepositListComponent},
     {path: 'create',component: BankDepositCreateComponent},
-    {path: 'update',component: BankDepositUpdateComponent},
-    {path: 'detail',component: BankDepositDetailComponent},
+    
+    {path: 'detail/:id',component: BankDepositDetailComponent},
   ]

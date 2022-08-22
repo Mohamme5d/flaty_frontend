@@ -47,6 +47,47 @@ export class RentPaymentsListComponent implements OnInit {
     }
     )   
   }
+  async delete(id) {
+    Swal.fire({
+      title: 'Do you want to delete the Rent Payment info?',
+      icon: 'question',
+      iconHtml: '؟',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      cancelButtonColor: 'red',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then(async (result)=>{
+      if (result.value) {
+      
+       var response= await this._service.delete(id)
+       if(response.status==1)
+       {
+        Swal.fire({      
+          icon: 'success',
+          title: 'Your Rent Payment info  has been deleted',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       await this.getList()
+
+       }
+       else
+       {
+        Swal.fire({      
+          icon: 'error',
+          title: 'Your  Rent Payment info  has not  been deleted!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       }
+        
+      }
+    }
+    )
+
+    
+  }
 
   
 }

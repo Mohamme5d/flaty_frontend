@@ -8,6 +8,6 @@ import { ExpensesUpdateComponent } from "./expenses-update/expenses-update.compo
 export const expenses: Routes=[
     {path: 'list',component: ExpensesListComponent},
     {path: 'create',component: ExpensesCreateComponent},
-    {path: 'update',component: ExpensesUpdateComponent},
-    {path: 'detail',component: ExpensesDetailComponent},
+    
+    {path: 'detail/:id',component: ExpensesDetailComponent},
   ]

@@ -2,12 +2,10 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
-     
     </div>
   </div>
 </div>
 <div class="container-fluid mt--7">  
-
     <div class="card bg-secondary shadow">
       <div class="card-header bg-white border-0">
         <div class="row align-items-center">
@@ -17,7 +15,6 @@
           <div class="col-4 text-right">
             <a  class="btn  btn-primary" (click)="save()">Save</a>
             <a type="button" routerLink="/bank-deposit/list" class="btn btn-primary">Back</a>
-
           </div>
         </div>
       </div>
@@ -28,50 +25,49 @@
             <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label" >Amount</label>
-                  <input type="number" class="form-control form-control-alternative" placeholder="Enter Amount">
+                  <input type="number" class="form-control form-control-alternative"formControlName="amount" placeholder="Enter Amount">
                 </div>
               </div>
             <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label" >Currency</label>
-                  <input type="text" class="form-control form-control-alternative" placeholder="Enter Currency">
+                  <input type="text" formControlName="currencyCode" class="form-control form-control-alternative" placeholder="Enter Currency">
                 </div>
               </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Exchange Rate</label>
-                <input type="number" class="form-control form-control-alternative" placeholder="Enter Exchange Rate">
+                <input type="number" formControlName="exchangeRate" class="form-control form-control-alternative" placeholder="Enter Exchange Rate">
               </div>
             </div>
-            
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Recipt No</label>
-                <input type="text"  class="form-control form-control-alternative" placeholder="Enter Recipt No" >
+                <input type="text" formControlName="reciptNo"  class="form-control form-control-alternative" placeholder="Enter Recipt No" >
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Date</label>
-                <input type="date"  class="form-control form-control-alternative" placeholder="Enter Date" >
+                <input type="date" formControlName="date" class="form-control form-control-alternative" placeholder="Enter Date" >
                 <p></p>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
-                <label class="form-control-label" for="input-last-name">Month & Year</label>
-                <input type="month"  class="form-control form-control-alternative">
+                  <label class="form-control-label" for="input-last-name">Month</label>
+                  <input type="number"  formControlName="month"  class="form-control form-control-alternative" placeholder="Enter Month">
+                </div>
+              <div class="form-group">
+                <label class="form-control-label" for="input-last-name">Year</label>
+                <input type="number"  formControlName="year"  class="form-control form-control-alternative" placeholder="Enter Year">
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label >Note</label>
-                <input type="text"  class="form-control form-control-alternative"  >
+                <input type="text" formControlName="notes"  class="form-control form-control-alternative" placeholder="Enter Note" >
               </div>
-            </div>
-            
-            <div class="float-left">
-                <a type="button" routerLink="/bank-deposit/list" class="btn btn-primary">Create</a>
             </div>
           </div>
         </form>

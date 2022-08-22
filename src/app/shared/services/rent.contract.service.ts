@@ -84,6 +84,122 @@ export class RentContractServers {
     return response;
   }
 
+  async getByID(id: any) {
+    var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
+      .get<IServiceResponse<IRentContract[]>>(
+        `${environment.siteURL}/RentContract/GetByID/`+id, 
+        { headers: new HttpHeaders(this.getHeader()) }
+      ))
+      .then()
+      .catch((err) => {
+        // this.toastr.error(
+        //   "an Error Occure!",
+        //   "error"
+        // );
+      });
+      console.log(response);
+
+      if (response.status == 5) {
+      //   this.toastr.error(
+      //     "You are not authorized!",
+      //     "error"
+      //   );
+      } else if (response.status != 1) {
+        //this.toastr.error(response.message, response.title);
+      }
+      return response;
+
+  }
+
+
+//   async getById(id: string) {
+//     var response = <IServiceResponse<IBankDeposit[]>>await lastValueFrom(this._http
+//       .get<IServiceResponse<IBankDeposit[]>>(
+//         `${environment.siteURL}/category/GetByID/?id=${id}`,
+//         {
+//           headers: new HttpHeaders(this.getHeader()),
+//         }
+//       ))
+//       .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+       
+//     if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+//     } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+//     }
+//     return response;
+//   }
+
+   
+      
+
+   async update(model: any) {
+    var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
+      .put<IServiceResponse<IRentContract[]>>(
+        `${environment.siteURL}/RentContract/Put/`+ model.rentContractID,
+        model,
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+   }
+
+   async delete(id: number) {
+    var response = <IServiceResponse<IRentContract[]>>await lastValueFrom(this._http
+      .delete<IServiceResponse<IRentContract[]>>(
+        `${environment.siteURL}/RentContract/delete/`+id, 
+        {
+          headers: new HttpHeaders(this.getHeader()),
+        }
+      ))
+      .then()
+//       .catch((err) => {
+//         this.toastr.error(
+//           "an Error Occure!",
+//           "error"
+//         );
+//       });
+
+      
+   if (response.status == 5) {
+//       this.toastr.error(
+//         "You are not authorized!",
+//         "error"
+//       );
+    } else if (response.status != 1) {
+//       this.toastr.error(response.message, response.title);
+    }
+    return response;
+ }
+
 
 
 //   async getById(id: string) {

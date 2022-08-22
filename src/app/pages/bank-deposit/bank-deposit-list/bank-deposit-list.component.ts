@@ -51,7 +51,47 @@ export class BankDepositListComponent implements OnInit {
 
     
   }
-  
+  async delete(id) {
+    Swal.fire({
+      title: 'Do you want to delete the renter?',
+      icon: 'question',
+      iconHtml: '؟',
+      confirmButtonText: 'Yes',
+      cancelButtonText: 'No',
+      cancelButtonColor: 'red',
+      showCancelButton: true,
+      showCloseButton: true
+    }).then(async (result)=>{
+      if (result.value) {
+      
+       var response= await this._service.delete(id)
+       if(response.status==1)
+       {
+        Swal.fire({      
+          icon: 'success',
+          title: 'Your Bank Deposit info  has been deleted',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       await this.getList()
+
+       }
+       else
+       {
+        Swal.fire({      
+          icon: 'error',
+          title: 'Your  Bank Deposit info  has not  been created!',
+          showConfirmButton: false,
+          timer: 1500
+        })
+       }
+        
+      }
+    }
+    )
+
+    
+  }
    
    
 

@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IApartment } from 'src/app/shared/models/apartment.model';
 import { ApartmentService } from 'src/app/shared/services/apartment.service';
+import Swal from 'sweetalert2';
 
 @Component({
   selector: 'app-apartments-create',
@@ -11,7 +12,10 @@ import { ApartmentService } from 'src/app/shared/services/apartment.service';
 export class ApartmentsCreateComponent implements OnInit {
 
   model: IApartment
-  form: FormGroup
+  form:  FormGroup
+  valid=new FormGroup({
+    name: new FormControl('', Validators.required),
+  })
   constructor(
     private _service: ApartmentService,
     private fb : FormBuilder
@@ -35,11 +39,29 @@ export class ApartmentsCreateComponent implements OnInit {
   var response=  await this._service.create(this.model);
   
   if(response.status==1)
-     alert("Done");
+  {
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'success',
+      title: 'Your Aprtment has been created',
+      showConfirmButton: false,
+      timer: 1500
+    }
+  
+  )}
+  
   else
   {
-    alert("error")
+    Swal.fire({
+      
+      position: 'top-end',
+      icon: 'error',
+      title: 'Your New Bank Deposit info has NOT created',
+      showConfirmButton: false,
+      timer: 1500
+    })
   }
-  }
+}
 
 }
