@@ -24,8 +24,10 @@
           <div class="col-lg-6">
             <div class="form-group">
               <label class="form-control-label" for="input-first-name">Rent Contract ID</label>
-              <input type="number"    class="form-control form-control-alternative form-select "    formControlName="rentContractID"  placeholder="Select Contract">
-            </div>
+              <select    class="form-control form-control-alternative form-select "    formControlName="rentContractID"  placeholder="Select Contract">
+                <option *ngFor="let item of contractsList" [value]="item.rentContractID" >{{item.name}}</option>
+             </select> 
+             </div>
           </div>
           <div class="col-lg-6">
             <div class="form-group">
