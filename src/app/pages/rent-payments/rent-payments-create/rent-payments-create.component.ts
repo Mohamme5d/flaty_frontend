@@ -14,8 +14,7 @@ import Swal from "sweetalert2";
 })
 export class RentPaymentsCreateComponent implements OnInit {
   form: FormGroup;
-  model: IRentPayment;
-  //contractsList: IRentContract[] = [];
+   contractsList: IRentContract[] = [];
   
 
   constructor(
@@ -25,8 +24,7 @@ export class RentPaymentsCreateComponent implements OnInit {
     private _service: RentPaymentService
 
   ) {
-    this.model= {} as IRentPayment;
-    this.form = this.fb.group({
+     this.form = this.fb.group({
       
       rentContractID: "",
       amount: "",
@@ -36,13 +34,13 @@ export class RentPaymentsCreateComponent implements OnInit {
       year: new Date().getFullYear(),
     });
 
- //   this.getLockups();
+    this.getLockups();
   }
 
-  //async getLockups() {
-    //this.contractsList = await (await this.contractService.getAll(null)).data;
-    //this.contractsList = this.contractsList.filter((e) => e.isActive == true);
- // }
+  async getLockups() {
+    this.contractsList = await (await this.contractService.getAll(null)).data;
+    this.contractsList = this.contractsList.filter((e) => e.isActive == true);
+ }
 
   ngOnInit(): void {}
   async save() {
@@ -55,10 +53,8 @@ export class RentPaymentsCreateComponent implements OnInit {
     model.year= this.form.value.year; 
     
    
-    console.log(model)
 
-    var response=  await this._service.create(this.model);
-     
+    var response=  await this._service.create(model);
     if (response.status == 1) {
       Swal.fire({
         position: "top-end",
