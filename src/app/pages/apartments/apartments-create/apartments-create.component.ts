@@ -13,9 +13,14 @@ export class ApartmentsCreateComponent implements OnInit {
 
   model: IApartment
   form:  FormGroup
-  valid=new FormGroup({
-    name: new FormControl('', Validators.required),
-  })
+  
+  valid= new FormGroup({
+    Name: new FormControl('', Validators.required),
+    Adress: new FormControl(null, Validators.required),
+  });
+  get Name() {return this.valid.get(this.Name)}
+  
+  
   constructor(
     private _service: ApartmentService,
     private fb : FormBuilder
@@ -29,8 +34,15 @@ export class ApartmentsCreateComponent implements OnInit {
   }
 
   ngOnInit(): void {
+   
+    
+    
+  
   }
-
+  onSupmit(){
+    console.log(this.valid)
+  }
+ 
 
  async save()
   {
