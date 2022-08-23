@@ -14,11 +14,13 @@ export class ApartmentsCreateComponent implements OnInit {
   model: IApartment
   form:  FormGroup
   
-  valid= new FormGroup({
-    Name: new FormControl('', Validators.required),
-    Adress: new FormControl(null, Validators.required),
-  });
-  get Name() {return this.valid.get(this.Name)}
+  //valid= new FormGroup({
+   // name:new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+    //address: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(0)]),
+  //});
+  //get name(){return this.valid.get(this.name)}
+  //get address(){return this.valid.get(this.address)}
+  
   
   
   constructor(
@@ -28,20 +30,14 @@ export class ApartmentsCreateComponent implements OnInit {
 
     this.model= {} as IApartment;
     this.form = this.fb.group({
-      name: "",
-      address: "",
+      name:new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      address: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
     });
   }
 
-  ngOnInit(): void {
-   
-    
-    
+  ngOnInit(): void { }
   
-  }
-  onSupmit(){
-    console.log(this.valid)
-  }
+  
  
 
  async save()

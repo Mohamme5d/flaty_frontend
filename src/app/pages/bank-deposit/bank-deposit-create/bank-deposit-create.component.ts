@@ -25,14 +25,14 @@ export class BankDepositCreateComponent implements OnInit {
     this.model= {} as IBankDeposit;
     this.form = this.fb.group({
      // bankDepositID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      amount: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      reciptNo: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      date: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      month: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      notes: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      year: "",
-      exchangeRate:"",
-      currencyCode:"",
+      amount: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      reciptNo: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      date: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      month: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      notes:"" ,
+      year: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      exchangeRate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      currencyCode:new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
 
 
 

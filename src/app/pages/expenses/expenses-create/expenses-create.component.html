@@ -26,6 +26,11 @@
                 <div class="form-group">
                   <label class="form-control-label" for="input-last-name">Apartment ID</label>
                   <input type="number" formControlName="apratmentExpenseID"  class="form-control form-control-alternative" placeholder="Enter Apartment ID" >
+                  <div *ngIf="form.controls['apratmentExpenseID'].invalid && form.controls['apratmentExpenseID'].touched" class="text-danger">
+                    <div *ngIf= "form.controls['apratmentExpenseID'].errors.required">
+                      Apartment ID is required.
+                  </div>
+                  </div>
                   <p></p>
                 </div>
               </div>
@@ -33,18 +38,33 @@
                 <div class="form-group">
                   <label class="form-control-label" for="input-last-name">Apartment Name</label>
                   <input type="text" formControlName="apartmentName"   class="form-control form-control-alternative"  placeholder="Enter Apartment Name">
+                  <div *ngIf="form.controls['apartmentName'].invalid && form.controls['apartmentName'].touched" class="text-danger">
+                    <div *ngIf= "form.controls['apartmentName'].errors.required">
+                      Apartment Name is required.
+                  </div>
+                  </div>
                 </div>
               </div>
               <div class="col-lg-6">
                 <div class="form-group">
                   <label >User ID</label>
                   <input type="text" formControlName="userID"  class="form-control form-control-alternative"  placeholder="Enter User ID">
+                  <div *ngIf="form.controls['userID'].invalid && form.controls['userID'].touched" class="text-danger">
+                    <div *ngIf= "form.controls['userID'].errors.required">
+                      User ID is required.
+                  </div>
+                  </div>
                 </div>
               </div>
             <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label" >Amount</label>
                   <input type="number"formControlName="amount"  class="form-control form-control-alternative" placeholder="Enter Amount">
+                  <div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched" class="text-danger">
+                    <div *ngIf= "form.controls['amount'].errors.required">
+                      Amount is required.
+                  </div>
+                  </div>
                 </div>
               </div>
             <div class="col-lg-3">
@@ -54,20 +74,40 @@
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Duo Date</label>
                 <input type="date" formControlName="dueDate"  class="form-control form-control-alternative" >
+                <div *ngIf="form.controls['dueDate'].invalid && form.controls['dueDate'].touched" class="text-danger">
+                  <div *ngIf= "form.controls['dueDate'].errors.required">
+                    Date is required.
+                </div>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Month</label>
                 <input type="number"  formControlName="month"  class="form-control form-control-alternative" placeholder="Enter Month" >
+                <div *ngIf="form.controls['month'].invalid && form.controls['month'].touched" class="text-danger">
+                  <div *ngIf= "form.controls['month'].errors.required">
+                    Month is required.
+                </div>
+                </div>
               </div>
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Year</label>
                 <input type="text"  formControlName="year"  class="form-control form-control-alternative" placeholder="Enter Year" >
+                <div *ngIf="form.controls['year'].invalid && form.controls['year'].touched" class="text-danger">
+                  <div *ngIf= "form.controls['year'].errors.required">
+                    Year is required.
+                </div>
+                </div>
               </div>
             </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Reason</label>
                 <input type="text"  formControlName="reason"  class="form-control form-control-alternative" placeholder="Enter Reason" >
+                <div *ngIf="form.controls['reason'].invalid && form.controls['reason'].touched" class="text-danger">
+                  <div *ngIf= "form.controls['reason'].errors.required">
+                    Reason is required.
+                </div>
+                </div>
               </div>
             </div>
           </div>

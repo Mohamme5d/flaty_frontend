@@ -15,9 +15,8 @@ export class RentersCreateComponent implements OnInit {
 
   model: IRenters
   form: FormGroup
-  valid=new FormGroup({
-    email: new FormControl('', Validators.required),
-  })
+  
+  
   constructor(
     private router:Router,
     private _service: RentersService,

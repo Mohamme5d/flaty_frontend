@@ -2,13 +2,10 @@
   <div class="container-fluid">
     <div class="header-body">
       <!-- Card stats -->
-     
     </div>
   </div>
 </div>
 <div class="container-fluid mt--7">  
-     
-
         <div class="card bg-secondary shadow">
           <div class="card-header bg-white border-0">
             <div class="row align-items-center">
@@ -18,11 +15,7 @@
               <div class="col-4 text-right">
                 <a  class="btn  btn-primary"(click)="save()">Save</a>
                 <a  class="btn  btn-secondary" routerLink="/rent-contract/list">Back</a>
-
               </div>
-
-              
-
             </div>
           </div>
           <div class="card-body">
@@ -32,10 +25,13 @@
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">Apartment </label>
-
-
                     <select    class="form-control form-control-alternative form-select "    formControlName="apartmentID"  placeholder="Select Apartment">
                       <option *ngFor="let item of apartmentList" [value]="item.apartmentID" >{{item.name}}</option>
+                      <div *ngIf="form.controls['apartmentID'].invalid && form.controls['apartmentID'].touched" class="text-danger">
+                        <div *ngIf= "form.controls['apartmentID'].errors.required">
+                          Apartment is required.
+                      </div>
+                      </div>
                    </select> 
 
                    </div>
@@ -45,6 +41,11 @@
                     <label class="form-control-label" for="input-last-name">Renter </label>
                     <select    class="form-control form-control-alternative form-select "    formControlName="renterID"  placeholder="Select Renter">
                       <option *ngFor="let item of renterList" [value]="item.renterID" >{{item.name}}</option>
+                      <div *ngIf="form.controls['renterID'].invalid && form.controls['renterID'].touched" class="text-danger">
+                        <div *ngIf= "form.controls['renterID'].errors.required">
+                          Renter is required.
+                      </div>
+                      </div>
                    </select>
                    </div>
                 </div>
@@ -52,6 +53,11 @@
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name" >Amount</label>
                     <input type="number"  class="form-control form-control-alternative" formControlName="amount" placeholder="Enter Amount" >
+                    <div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched" class="text-danger">
+                      <div *ngIf= "form.controls['amount'].errors.required">
+                        Amount is required.
+                    </div>
+                    </div>
                   </div>
                 </div>
                 
@@ -59,22 +65,24 @@
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name" >Start Date</label>
                     <input type="date"  class="form-control form-control-alternative" formControlName="startDate" placeholder="Start Date" >
+                    <div *ngIf="form.controls['startDate'].invalid && form.controls['startDate'].touched" class="text-danger">
+                      <div *ngIf= "form.controls['startDate'].errors.required">
+                        Start Date is required.
+                    </div>
+                    </div>
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label >End Date</label>
                     <input type="date"  class="form-control form-control-alternative" formControlName="endDate"  >
+                    <div *ngIf="form.controls['endDate'].invalid && form.controls['endDate'].touched" class="text-danger">
+                      <div *ngIf= "form.controls['endDate'].errors.required">
+                        End Date is required.
+                    </div>
+                    </div>
                   </div>
                 </div>
-
-
-               
-                  
-              
-                
-               
-                
               </div>
             </form>
           </div>

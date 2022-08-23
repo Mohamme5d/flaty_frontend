@@ -1,5 +1,5 @@
 import { Component, OnInit } from "@angular/core";
-import { FormBuilder, FormGroup } from "@angular/forms";
+import { FormBuilder, FormControl, FormGroup, Validators } from "@angular/forms";
 import { Router } from "@angular/router";
 import { IRentContract } from "src/app/shared/models/rent.contract.model";
 import { IRentPayment } from "src/app/shared/models/rent.payment.model";
@@ -26,11 +26,11 @@ export class RentPaymentsCreateComponent implements OnInit {
   ) {
      this.form = this.fb.group({
       
-      rentContractID: "",
-      amount: "",
+      rentContractID: new FormControl("", [ Validators.required, ]),
+      amount:  new FormControl("", [ Validators.required, ]),
       
-      paymentDate:"",
-      month: new Date().getMonth() + 1,
+      paymentDate: new FormControl("", [ Validators.required, ]),
+      month:   new Date().getMonth( ) + 1,
       year: new Date().getFullYear(),
     });
 

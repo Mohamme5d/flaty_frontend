@@ -11,3 +11,12 @@
     margin: 0 68%;
 
 }
+input.ng-invalid.ng-touched{
+    border: red 1px solid;
+}
+option.ng-invalid.ng-touched{
+    border: red 1px solid;
+}
+select.ng-invalid.ng-touched{
+    border: red 1px solid;
+}

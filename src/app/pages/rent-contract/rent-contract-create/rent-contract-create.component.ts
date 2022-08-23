@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IApartment } from 'src/app/shared/models/apartment.model';
 import { IRentContract } from 'src/app/shared/models/rent.contract.model';
 import { IRenters } from 'src/app/shared/models/renters.model';
@@ -29,11 +29,11 @@ export class RentContractCreateComponent implements OnInit {
     this.getLockups()
 
     this.form= this.fb.group({
-      renterID: "",
-      amount: 0,
-      apartmentID: "",
-      startDate: "",
-      endDate: "",
+      renterID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      amount: new FormControl("", [ Validators.required]),
+      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      startDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      endDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
     })
    }
 

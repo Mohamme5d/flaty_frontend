@@ -33,24 +33,44 @@
             <div class="form-group">
               <label class="form-control-label" for="input-last-name">Amount</label>
               <input type="number" formControlName="amount"  class="form-control form-control-alternative" placeholder="Enter Amount" >
+              <div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched" class="text-danger">
+                <div *ngIf= "form.controls['amount'].errors.required">
+                  Amount is required.
+              </div>
+              </div>
             </div>
           </div>      
           <div class="col-lg-6">
             <div class="form-group">
               <label class="form-control-label" for="input-last-name">Pyment Date</label>
               <input type="date" formControlName="paymentDate"   class="form-control form-control-alternative" placeholder="Pyment Date" >
+              <div *ngIf="form.controls['paymentDate'].invalid && form.controls['paymentDate'].touched" class="text-danger">
+                <div *ngIf= "form.controls['paymentDate'].errors.required">
+                  Pyment Date is required.
+              </div>
+              </div>
             </div>
           </div>
           <div class="col-lg-3">
             <div class="form-group">
               <label >Month</label>
               <input type="number"  formControlName="month" class="form-control form-control-alternative"  >
+              <div *ngIf="form.controls['month'].invalid && form.controls['month'].touched" class="text-danger">
+                <div *ngIf= "form.controls['month'].errors.required">
+                  Month is required.
+              </div>
+              </div>
             </div>
           </div>
             <div class="col-lg-3">
               <div class="form-group">
                 <label >Year</label>
                 <input type="number" formControlName="year" class="form-control form-control-alternative"  >
+                <div *ngIf="form.controls['year'].invalid && form.controls['year'].touched" class="text-danger">
+                  <div *ngIf= "form.controls['year'].errors.required">
+                    Year is required.
+                </div>
+                </div>
               </div>
           </div> 
         </div>

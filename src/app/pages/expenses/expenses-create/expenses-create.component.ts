@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormControl, FormGroup, Validators } from '@angular/forms';
 import { IExpenses } from 'src/app/shared/models/expenses.model';
 import { ExpensesService } from 'src/app/shared/services/expenses.services';
 import Swal from 'sweetalert2';
@@ -21,16 +21,16 @@ export class ExpensesCreateComponent implements OnInit {
 
     this.model= {} as IExpenses;
     this.form = this.fb.group({
-      apratmentExpenseID: "",
-      amount: "",
-      dueDate: "",
-      month: "",
-      year: "",
-      reason: "",
-      apartmentID: "",
-      apartmentName: "",
-      userID: "",
-      isClosed: "",
+      apratmentExpenseID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      amount: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      dueDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      month: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      year: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      reason: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      apartmentName: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      userID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      isClosed: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
      
     });
   }
