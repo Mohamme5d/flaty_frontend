@@ -13,29 +13,42 @@ import { Router } from '@angular/router';
 export class ExpensesCreateComponent implements OnInit {
   model: IExpenses
   form: FormGroup
+  submitted= false
   constructor(
     private router: Router,
     private _service: ExpensesService,
     private fb : FormBuilder
   ) { 
 
+    
+  }
+
+  ngOnInit() {
     this.model= {} as IExpenses;
     this.form = this.fb.group({
-      apratmentExpenseID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      amount: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      dueDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      month: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      year: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      apratmentExpenseID: ['', [Validators.required, Validators.minLength(2), Validators.maxLength(6)]],
+      amount: new FormControl("", [ Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+      dueDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(13)]),
+      month: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
+      year: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(5)]),
       reason: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      apartmentName: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      userID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
+      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      apartmentName: new FormControl("", [ Validators.required, Validators.minLength(3), Validators.maxLength(50)]),
+      userID: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
       isClosed: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
      
     });
+    
+    
   }
-
-  ngOnInit(): void {
+  onSubmit() {
+    this.submitted = true
+    if(this.form.invalid)
+    {
+      return
+    }
+    alert(('done'))
+    
   }
  async save()
   {
@@ -66,9 +79,9 @@ export class ExpensesCreateComponent implements OnInit {
     
     )
      }
-  else
+ else
   {
-    Swal.fire({
+   Swal.fire({
       
       position: 'top-end',
       icon: 'error',
@@ -77,8 +90,8 @@ export class ExpensesCreateComponent implements OnInit {
       timer: 1500
     }
   
-  )
-  }
+ )
+ }
   }
   
 

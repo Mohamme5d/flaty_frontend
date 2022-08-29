@@ -16,12 +16,17 @@ export class BankDepositCreateComponent implements OnInit {
 
   model: IBankDeposit
   form: FormGroup
+  submitted= false
   constructor(
     private router:Router,
     private _service: BankDepostService,
     private fb : FormBuilder
   ) { 
 
+  }
+
+  ngOnInit() {
+    
     this.model= {} as IBankDeposit;
     this.form = this.fb.group({
      // bankDepositID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
@@ -39,8 +44,14 @@ export class BankDepositCreateComponent implements OnInit {
       
     });
   }
-
-  ngOnInit(): void {
+  onSubmit() {
+    this.submitted = true
+    if(this.form.invalid)
+    {
+      return
+    }
+    alert(('done'))
+    
   }
 
 
@@ -93,9 +104,5 @@ export class BankDepositCreateComponent implements OnInit {
   }
 //}
   }
-  
-  
-  
-  
 
 }

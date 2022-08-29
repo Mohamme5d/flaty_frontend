@@ -15,15 +15,11 @@
               <div class="col-8">
                 <h3 class="mb-0">Al Sayani Apartments</h3>
               </div>
-              <div class="col-4 text-right">
-                <button class="btn  btn-primary" (click)="save()">Save</button>
-                <a routerLink="/apartments/list" class="btn  btn-secondary">Back</a>
-
-              </div>
+              
             </div>
           </div>
           <div class="card-body">
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
             
               <h6 class="heading-small text-muted mb-4">Apartment information</h6>
               <div class="pl-lg-4">
@@ -32,30 +28,48 @@
                     
                       <div class="form-group">
                         <label class="form-control-label" for="input-username">Name</label>
-                        <input type="text" formControlName="name"  id="name" class="form-control form-control-alternative" placeholder="Enter Name" >
-                        <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="text-danger">
-                          <div *ngIf= "form.controls['name'].errors.required">
-                          Name is required.
-                        </div>
-                        </div>
+                        <input type="text" 
+                        formControlName="name"  
+                        id="name" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Enter Name"
+                        [ngClass]= "{'is-invalid': submitted && form.controls.name.errors}" />
+                        <div *ngIf="submitted && form.controls.name.errors"
+                        class="text-danger"> 
+                       <div *ngIf= "submitted && form.controls.name.errors.required">
+                        Name is required.
+                       </div>
+                      </div>  
+                        
+                     
                     </div>
                   
                   </div>
+                  
                 </div>
                 <div class="row">
                     <div class="col-md-12">
                       <div class="form-group">
                         <label class="form-control-label" for="input-address">Address</label>
-                        <textarea formControlName="address" rows="4" class="form-control form-control-alternative" placeholder="Enter Address"></textarea>
-                        <div *ngIf= "form.controls['address'].invalid && form.controls['address'].touched" class="text-danger">
-                          <div *ngIf= "form.controls['address'].errors.required">
-                            address is required.
-                        </div>
-                        </div>
+                        <textarea formControlName="address" 
+                        rows="4" 
+                        class="form-control form-control-alternative" 
+                        placeholder="Enter Address"
+                        [ngClass]= "{'is-invalid': submitted && form.controls.address.errors}"></textarea>
+                        <div *ngIf="submitted && form.controls.address.errors"
+                        class="text-danger"> 
+                       <div *ngIf= "submitted && form.controls.address.errors.required">
+                        Address is required.
+                       </div>
+                      </div>
+                        
                     </div>
                     </div>
                   </div>
-                
+                  <div class="col-4 text-right">
+                    <button class="btn  btn-primary" (click)="save()">Save</button>
+                    <a routerLink="/apartments/list" class="btn  btn-secondary">Back</a>
+                  </div>
               </div>
             </form>
           

@@ -14,84 +14,118 @@
           <div class="col-8">
             <h3 class="mb-0">Renter Creat</h3>
           </div>
-          <div class="col-4 text-right"> 
-            <a  class="btn  btn-primary" (click)="save()">Save</a>
-            <a routerLink="/renters/list" class="btn  btn-secondary">Back</a> 
-          </div>
+          
         </div>
       </div>
       <div class="card-body">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <h6 class="heading-small text-muted mb-4">Renters information</h6>
           <div class="row">
             <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" >National ID</label>
-                  <input type="text" class="form-control form-control-alternative" formControlName="id" placeholder="Enter Renter ID">
-                  <div *ngIf= "form.controls['id'].invalid && form.controls['id'].touched" class="text-danger">
-                    <div *ngIf="form.controls['id'].errors.required">
-                    ID is required.
+                  <input type="text" 
+                  class="form-control form-control-alternative" 
+                  formControlName="id" 
+                  placeholder="Enter Renter ID"
+                  [ngClass]= "{'is-invalid': submitted && form.controls.id.errors}" />
+                  <div *ngIf="submitted && form.controls.id.errors"
+                  class="text-danger"> 
+                  <div *ngIf= "submitted && form.controls.id.errors.required">
+                    National ID is required.
                   </div>
-                </div>
+                  </div>  
                 </div>
               </div>
             <div class="col-lg-6">
                 <div class="form-group">
                   <label class="form-control-label" >Renter Name</label>
-                  <input type="text" id="name" class="form-control form-control-alternative" formControlName="name" placeholder="Enter Renter Name"> 
-                  <div *ngIf="form.controls['name'].invalid && form.controls['name'].touched" class="text-danger">
-                    <div *ngIf= "form.controls['name'].errors.required">
-                    Name is required.
-                  </div>
-                </div>
+                  <input type="text" 
+                  id="name" 
+                  class="form-control form-control-alternative" 
+                  formControlName="name" 
+                  placeholder="Enter Renter Name"
+                  [ngClass]= "{'is-invalid': submitted && form.controls.name.errors}" />
+                  <div *ngIf="submitted && form.controls.name.errors"
+                  class="text-danger"> 
+                 <div *ngIf= "submitted && form.controls.name.errors.required">
+                  Renter Name is required.
+                 </div>
+                </div>  
+                  
                 </div>
               </div>
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Mobile No</label>
-                <input type="tel" class="form-control form-control-alternative" formControlName="mobile" placeholder="Enter Mobile">
-                <div *ngIf="form.controls['mobile'].invalid && form.controls['mobile'].touched" class="text-danger">
-                  <div *ngIf="form.controls['mobile'].errors.required">
-                    Mobile is required.
-                </div>
-              </div>
+                <input type="tel" 
+                class="form-control form-control-alternative" 
+                formControlName="mobile" 
+                placeholder="Enter Mobile"
+                [ngClass]= "{'is-invalid': submitted && form.controls.mobile.errors}" />
+                  <div *ngIf="submitted && form.controls.name.errors"
+                  class="text-danger"> 
+                 <div *ngIf= "submitted && form.controls.mobile.errors.required">
+                  Mobile No is required.
+                 </div>
+                </div>  
               </div>
             </div>
             
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Adress</label>
-                <input type="text"  class="form-control form-control-alternative" formControlName="address" placeholder="Enter Adress" >
-                <div *ngIf="form.controls['address'].invalid && form.controls['address'].touched" class="text-danger">
-                  <div *ngIf="form.controls['address'].errors.required">
-                    Adress is required.
+                <input type="text"  
+                class="form-control form-control-alternative" 
+                formControlName="address" 
+                placeholder="Enter Adress"
+                [ngClass]= "{'is-invalid': submitted && form.controls.address.errors}" />
+                <div *ngIf="submitted && form.controls.name.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.address.errors.required">
+                  Adress is required.
                 </div>
-              </div>
+                </div>  
+                
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Desc</label>
-                <input type="text"  class="form-control form-control-alternative" formControlName="desc" placeholder="Enter Desc" >
-                <div *ngIf="form.controls['desc'].invalid && form.controls['desc'].touched" class="text-danger">
-                  <div *ngIf="form.controls['desc'].errors.required">
-                    Desc is required.
+                <input type="text"  
+                class="form-control form-control-alternative" 
+                formControlName="desc" 
+                placeholder="Enter Desc" 
+                [ngClass]= "{'is-invalid': submitted && form.controls.desc.errors}" />
+                <div *ngIf="submitted && form.controls.desc.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.desc.errors.required">
+                Desc is required.
                 </div>
-              </div>
+                </div>
                 <p></p>
               </div>
             </div>
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Old Blance</label>
-                <input type="number"  class="form-control form-control-alternative" formControlName="oldBalance" placeholder="Enter Old Blance" >
-                <div *ngIf="form.controls['oldBalance'].invalid && form.controls['oldBalance'].touched" class="text-danger">
-                  <div *ngIf="form.controls['oldBalance'].errors.required">
-                    old Balance is required.
+                <input type="number"  
+                class="form-control form-control-alternative" 
+                formControlName="oldBalance" 
+                placeholder="Enter Old Blance"
+                [ngClass]= "{'is-invalid': submitted && form.controls.oldBalance.errors}" />
+                <div *ngIf="submitted && form.controls.oldBalance.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.oldBalance.errors.required">
+                  Old Blance is required.
                 </div>
-              </div>
+                </div>  
               </div>
             </div> 
+          </div>
+          <div class="col-4 text-right">
+            <button class="btn  btn-primary" (click)="save()">Save</button>
+            <a routerLink="/rent-create/list" class="btn  btn-secondary">Back</a>
           </div>
         </form>
       </div>

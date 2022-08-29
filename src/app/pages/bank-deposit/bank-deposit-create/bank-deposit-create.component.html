@@ -12,100 +12,154 @@
           <div class="col-8">
             <h3 class="mb-0">Bank Deposit Creat</h3>
           </div>
-          <div class="col-4 text-right">
-            <a  class="btn  btn-primary" (click)="save()">Save</a>
-            <a type="button" routerLink="/bank-deposit/list" class="btn btn-primary">Back</a>
-          </div>
+          
         </div>
       </div>
       <div class="card-body">
-        <form [formGroup]="form">
+        <form [formGroup]="form" (ngSubmit)="onSubmit()">
           <h6 class="heading-small text-muted mb-4">Bank Deposit information</h6>
           <div class="row">
             <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label" >Amount</label>
-                  <input type="number" class="form-control form-control-alternative"formControlName="amount" placeholder="Enter Amount">
-                  <div *ngIf= "form.controls['amount'].invalid && form.controls['amount'].touched" class="text-danger">
-                    <div *ngIf= "form.controls['amount'].errors.required">
-                    Amount is required.
+                  <input type="number" 
+                  class="form-control form-control-alternative"
+                  formControlName="amount" 
+                  placeholder="Enter Amount"
+                  [ngClass]= "{'is-invalid': submitted && form.controls.amount.errors}" />
+                  <div *ngIf="submitted && form.controls.amount.errors"
+                   class="text-danger"> 
+                  <div *ngIf= "submitted && form.controls.amount.errors.required">
+                    amount is required.
                   </div>
-                  </div>
+                  </div> 
                 </div>
               </div>
+
             <div class="col-lg-3">
                 <div class="form-group">
                   <label class="form-control-label" >Currency</label>
-                  <input type="text" formControlName="currencyCode" class="form-control form-control-alternative" placeholder="Enter Currency">
-                  <div *ngIf="form.controls['currencyCode'].invalid && form.controls['currencyCode'].touched" class="text-danger">
-                    <div *ngIf= "form.controls['currencyCode'].errors.required">
-                    Currency is required.
-                  </div>
-                  </div>
+                  <input type="text" 
+                  formControlName="currencyCode" 
+                  class="form-control form-control-alternative" 
+                  placeholder="Enter Currency"
+                  [ngClass]= "{'is-invalid': submitted && form.controls.currencyCode.errors}" />
+                    <div *ngIf="submitted && form.controls.currencyCode.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.currencyCode.errors.required">
+                    currency Code is required.
+                   </div>
+                  </div> 
                 </div>
               </div>
+
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-first-name">Exchange Rate</label>
-                <input type="number" formControlName="exchangeRate" class="form-control form-control-alternative" placeholder="Enter Exchange Rate">
-                <div *ngIf="form.controls['exchangeRate'].invalid && form.controls['exchangeRate'].touched" class="text-danger">
-                  <div *ngIf= "form.controls['exchangeRate'].errors.required">
-                  Exchange Rate is required.
+                <input type="number" 
+                formControlName="exchangeRate" 
+                class="form-control form-control-alternative" 
+                placeholder="Enter Exchange Rate"
+                [ngClass]= "{'is-invalid': submitted && form.controls.exchangeRate.errors}" />
+                <div *ngIf="submitted && form.controls.exchangeRate.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.exchangeRate.errors.required">
+                Exchange Rate is required.
                 </div>
-                </div>
+                </div> 
               </div>
             </div>
+
             <div class="col-lg-6">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Recipt No</label>
-                <input type="text" formControlName="reciptNo"  class="form-control form-control-alternative" placeholder="Enter Recipt No" >
-                <div *ngIf="form.controls['reciptNo'].invalid && form.controls['reciptNo'].touched" class="text-danger">
-                  <div *ngIf= "form.controls['reciptNo'].errors.required">
-                  Recipt No is required.
-                </div>
-                </div>
+                <input type="text" 
+                formControlName="reciptNo"  
+                class="form-control form-control-alternative" 
+                placeholder="Enter Recipt No"
+                [ngClass]= "{'is-invalid': submitted && form.controls.reciptNo.errors}" />
+                    <div *ngIf="submitted && form.controls.reciptNo.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.reciptNo.errors.required">
+                    Recipt No is required.
+                   </div>
+                  </div> 
               </div>
             </div>
+
             <div class="col-lg-4">
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Date</label>
-                <input type="date" formControlName="date" class="form-control form-control-alternative" placeholder="Enter Date" >
-                <div *ngIf="form.controls['date'].invalid && form.controls['date'].touched" class="text-danger">
-                  <div *ngIf= "form.controls['date'].errors.required">
-                  Date is required.
-                </div>
-                </div>
+                <input type="date" 
+                formControlName="date" 
+                class="form-control form-control-alternative" 
+                placeholder="Enter Date"
+                [ngClass]= "{'is-invalid': submitted && form.controls.date.errors}" />
+                    <div *ngIf="submitted && form.controls.date.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.date.errors.required">
+                    Date is required.
+                   </div>
+                  </div> 
                 <p></p>
               </div>
             </div>
+
             <div class="col-lg-4">
               <div class="form-group">
                   <label class="form-control-label" for="input-last-name">Month</label>
-                  <input type="number"  formControlName="month"  class="form-control form-control-alternative" placeholder="Enter Month">
-                  <div *ngIf="form.controls['month'].invalid && form.controls['month'].touched" class="text-danger">
-                    <div *ngIf= "form.controls['month'].errors.required">
-                    Month is required.
+                  <input type="number"  
+                  formControlName="month"  
+                  class="form-control form-control-alternative" 
+                  placeholder="Enter Month"
+                  [ngClass]= "{'is-invalid': submitted && form.controls.month.errors}" />
+                  <div *ngIf="submitted && form.controls.month.errors"
+                  class="text-danger"> 
+                  <div *ngIf= "submitted && form.controls.month.errors.required">
+                  Month is required.
                   </div>
-                  </div>
+                  </div> 
                 </div>
+                
               <div class="form-group">
                 <label class="form-control-label" for="input-last-name">Year</label>
-                <input type="number"  formControlName="year"  class="form-control form-control-alternative" placeholder="Enter Year">
-                <div *ngIf="form.controls['year'].invalid && form.controls['year'].touched" class="text-danger">
-                  <div *ngIf= "form.controls['year'].errors.required">
-                  Year is required.
+                <input type="number"  
+                formControlName="year"  
+                class="form-control form-control-alternative" 
+                placeholder="Enter Year"
+                [ngClass]= "{'is-invalid': submitted && form.controls.year.errors}" />
+                <div *ngIf="submitted && form.controls.year.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.year.errors.required">
+                    year is required.
                 </div>
                 </div>
               </div>
             </div>
+
             <div class="col-lg-6">
               <div class="form-group">
                 <label >Note</label>
-                <input type="text" formControlName="notes"  class="form-control form-control-alternative" placeholder="Enter Note" >
-                
+                <input type="text" 
+                formControlName="notes"  
+                class="form-control form-control-alternative" 
+                placeholder="Enter Note"
+                [ngClass]= "{'is-invalid': submitted && form.controls.notes.errors}" />
+                <div *ngIf="submitted && form.controls.notes.errors"
+                class="text-danger"> 
+                <div *ngIf= "submitted && form.controls.notes.errors.required">
+                    Note is required.
+                </div>
+                </div> 
               </div>
             </div>
           </div>
+
+          <div class="col-4 text-right">
+            <button  class="btn  btn-primary" (click)="save()">Save</button>
+            <a type="button" routerLink="/bank-deposit/list" class="btn btn-primary">Back</a>
+          </div>
+
         </form>
       </div>
     </div>

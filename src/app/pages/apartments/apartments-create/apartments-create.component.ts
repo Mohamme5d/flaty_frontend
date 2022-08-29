@@ -13,6 +13,7 @@ export class ApartmentsCreateComponent implements OnInit {
 
   model: IApartment
   form:  FormGroup
+  submitted = false
   
   //valid= new FormGroup({
    // name:new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
@@ -28,16 +29,27 @@ export class ApartmentsCreateComponent implements OnInit {
     private fb : FormBuilder
   ) { 
 
+    
+  }
+
+  ngOnInit() {
     this.model= {} as IApartment;
     this.form = this.fb.group({
       name:new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
       address: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
     });
+    
+   }
+   
+   onSubmit() {
+    this.submitted = true
+    if(this.form.invalid)
+    {
+      return
+    }
+    alert(('done'))
+    
   }
-
-  ngOnInit(): void { }
-  
-  
  
 
  async save()

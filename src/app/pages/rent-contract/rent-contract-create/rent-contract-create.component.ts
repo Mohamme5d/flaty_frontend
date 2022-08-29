@@ -18,6 +18,7 @@ export class RentContractCreateComponent implements OnInit {
   renterList: IRenters[]=[]
   apartmentList: IApartment[]=[];
   form: FormGroup
+  submitted = false
   constructor(
     private apartmentService: ApartmentService,
     private renterSerice: RentersService, 
@@ -28,21 +29,30 @@ export class RentContractCreateComponent implements OnInit {
 
     this.getLockups()
 
-    this.form= this.fb.group({
-      renterID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      amount: new FormControl("", [ Validators.required]),
-      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      startDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-      endDate: new FormControl("", [ Validators.required, Validators.minLength(4), Validators.maxLength(50)]),
-    })
+    
    }
 
-  ngOnInit(): void {
+  ngOnInit(){
+    this.form= this.fb.group({
+      renterID: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      amount: new FormControl("", [ Validators.required]),
+      apartmentID: new FormControl("", [ Validators.required, Validators.minLength(2), Validators.maxLength(50)]),
+      startDate: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+      endDate: new FormControl("", [ Validators.required, Validators.minLength(1), Validators.maxLength(50)]),
+    })
   }
-
+  onSubmit() {
+    this.submitted = true
+    if(this.form.invalid)
+    {
+      return
+    }
+    alert(('done'))
+    
+  }
   async getLockups()
   {
-    this.renterList= await((await this.renterSerice.getAll(null)).data)
+      this.renterList= await((await this.renterSerice.getAll(null)).data)
     this.apartmentList= await((await this.apartmentService.getAll(null)).data)
   }
 

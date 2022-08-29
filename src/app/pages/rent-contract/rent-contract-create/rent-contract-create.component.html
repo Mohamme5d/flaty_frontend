@@ -12,86 +12,108 @@
               <div class="col-8">
                 <h3 class="mb-0">Rent Contract Creat</h3>
               </div>
-              <div class="col-4 text-right">
-                <a  class="btn  btn-primary"(click)="save()">Save</a>
-                <a  class="btn  btn-secondary" routerLink="/rent-contract/list">Back</a>
-              </div>
+             
             </div>
           </div>
           <div class="card-body">
-            <form [formGroup]="form">
+            <form [formGroup]="form" (ngSubmit)="onSubmit()">
               <h6 class="heading-small text-muted mb-4">Contract information</h6>
               <div class="row">
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-first-name">Apartment </label>
-                    <select    class="form-control form-control-alternative form-select "    formControlName="apartmentID"  placeholder="Select Apartment">
-                      <option *ngFor="let item of apartmentList" [value]="item.apartmentID" >{{item.name}}</option>
-                      <div *ngIf="form.controls['apartmentID'].invalid && form.controls['apartmentID'].touched" class="text-danger">
-                        <div *ngIf= "form.controls['apartmentID'].errors.required">
-                          Apartment is required.
-                      </div>
-                      </div>
+                    <select    class="form-control form-control-alternative form-select "   
+                     formControlName="apartmentID"  
+                     placeholder="Select Apartment"
+                     [ngClass]= "{'is-invalid': submitted && form.controls.apartmentID.errors}" >
+                      <option *ngFor="let item of apartmentList" 
+                      [value]="item.apartmentID" >{{item.name}}</option>
+                      
+                      <div *ngIf="submitted && form.controls.apartmentID.errors"
+                       class="text-danger"> 
+                       <div *ngIf= "submitted && form.controls.apartmentID.errors.required">
+                        Select Apartment ID 
+                       </div>
+                  </div> 
                    </select> 
-
                    </div>
                 </div>
+
                 <div class="col-lg-6">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name">Renter </label>
-                    <select    class="form-control form-control-alternative form-select "    formControlName="renterID"  placeholder="Select Renter">
+                    <select    class="form-control form-control-alternative form-select "    
+                    formControlName="renterID"  
+                    placeholder="Select Renter"
+                    [ngClass]= "{'is-invalid': submitted && form.controls.renterID.errors}">
                       <option *ngFor="let item of renterList" [value]="item.renterID" >{{item.name}}</option>
-                      <div *ngIf="form.controls['renterID'].invalid && form.controls['renterID'].touched" class="text-danger">
-                        <div *ngIf= "form.controls['renterID'].errors.required">
-                          Renter is required.
-                      </div>
-                      </div>
+                      <div *ngIf="submitted && form.controls.renterID.errors"
+                   class="text-danger"
+                    > 
+                   <div *ngIf="submitted && form.controls.amount.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.renterID.errors.required">
+                    Select Renter ID
+                   </div>
+                   </div>
+                  </div> 
                    </select>
                    </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name" >Amount</label>
-                    <input type="number"  class="form-control form-control-alternative" formControlName="amount" placeholder="Enter Amount" >
-                    <div *ngIf="form.controls['amount'].invalid && form.controls['amount'].touched" class="text-danger">
-                      <div *ngIf= "form.controls['amount'].errors.required">
-                        Amount is required.
-                    </div>
-                    </div>
+                    <input type="number"  
+                    class="form-control form-control-alternative" 
+                    formControlName="amount" 
+                    placeholder="Enter Amount" 
+                    [ngClass]= "{'is-invalid': submitted && form.controls.amount.errors}" />
+                    <div *ngIf="submitted && form.controls.amount.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.amount.errors.required">
+                    amount is required.
+                   </div>
+                  </div> 
                   </div>
                 </div>
-                
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label class="form-control-label" for="input-last-name" >Start Date</label>
-                    <input type="date"  class="form-control form-control-alternative" formControlName="startDate" placeholder="Start Date" >
-                    <div *ngIf="form.controls['startDate'].invalid && form.controls['startDate'].touched" class="text-danger">
-                      <div *ngIf= "form.controls['startDate'].errors.required">
-                        Start Date is required.
-                    </div>
-                    </div>
+                    <input type="date"  
+                    class="form-control form-control-alternative" 
+                    formControlName="startDate" 
+                    placeholder="Start Date" 
+                    [ngClass]= "{'is-invalid': submitted && form.controls.startDate.errors}" />
+                    <div *ngIf="submitted && form.controls.startDate.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.startDate.errors.required">
+                    Date is required.
+                   </div>
+                  </div> >
+                    
                   </div>
                 </div>
                 <div class="col-lg-4">
                   <div class="form-group">
                     <label >End Date</label>
-                    <input type="date"  class="form-control form-control-alternative" formControlName="endDate"  >
-                    <div *ngIf="form.controls['endDate'].invalid && form.controls['endDate'].touched" class="text-danger">
-                      <div *ngIf= "form.controls['endDate'].errors.required">
-                        End Date is required.
-                    </div>
-                    </div>
+                    <input type="date"  
+                    class="form-control form-control-alternative" 
+                    formControlName="endDate"  
+                    [ngClass]= "{'is-invalid': submitted && form.controls.endDate.errors}" />
+                    <div *ngIf="submitted && form.controls.endDate.errors"
+                   class="text-danger"> 
+                   <div *ngIf= "submitted && form.controls.endDate.errors.required">
+                    end Date required
+                   </div>
+                  </div> 
                   </div>
                 </div>
               </div>
+              <div class="col-4 text-right">
+                <button  class="btn  btn-primary"(click)="save()">Save</button>
+                <a  class="btn  btn-secondary" routerLink="/rent-contract/list">Back</a>
+              </div>
             </form>
-          </div>
-          <div class="card-footer">
-            <div class="col-4 text-right">
-              <a  class="btn  btn-primary" (click)="save()">Save</a>
-              <a routerLink="/rent-contacts/list" class="btn  btn-secondary">Back</a>
-
-            </div>
           </div>
         </div>
     
