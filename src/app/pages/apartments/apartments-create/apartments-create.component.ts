@@ -4,6 +4,7 @@ import { IApartment } from 'src/app/shared/models/apartment.model';
 import { ApartmentService } from 'src/app/shared/services/apartment.service';
 import Swal from 'sweetalert2';
 
+
 @Component({
   selector: 'app-apartments-create',
   templateUrl: './apartments-create.component.html',

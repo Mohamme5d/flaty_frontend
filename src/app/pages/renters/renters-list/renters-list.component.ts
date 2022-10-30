@@ -63,7 +63,7 @@ export class RentersListComponent implements OnInit {
       if (result.value) {
       
        var response= await this._service.delete(id)
-       if(response.status==1)
+       if(response.status==0)
        {
         Swal.fire({      
           icon: 'success',

@@ -19,7 +19,7 @@
               </h3>
             </div>
            
-            <div class="float-right">
+            <div class="float-left">
               <a type="button" class="btn btn-primary" (click)="CreatButton()">Create New</a>
             </div>
           </div>
@@ -68,9 +68,10 @@
                         <i class="fas fa-ellipsis-v"></i>
                       </a>
                       <div ngbDropdownMenu class=" dropdown-menu-right dropdown-menu-arrow">
-                        
-                        <a class="dropdown-item" [routerLink]="['/bank-deposit/detail/'+item.bankDepositID]">Details</a>
-                        <a class="dropdown-item" (click)="delete(item.bankDepositID)">Delete</a>
+                        <button [routerLink]="['/bank-deposit/detail/'+item.bankDepositID]"> Details! </button>
+                        <button [routerLink]="['/bank-deposit/detail/'+item.bankDepositID]"> Delete! </button>
+                        <!-- <a class="dropdown-item" (click)="delete(item.bankDepositID)">Details</a>
+                        <a class="dropdown-item" (click)="delete(item.bankDepositID)">Delete</a> -->
                       </div>
                     </div>
                   </td>

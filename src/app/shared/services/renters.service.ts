@@ -168,7 +168,7 @@ export class RentersService {
  }
 
 
-  async delete(id: number) {
+  async delete(id: any) {
     var response = <IServiceResponse<IRenters[]>>await lastValueFrom(this._http
       .delete<IServiceResponse<IRenters[]>>(
         `${environment.siteURL}/Renter/delete/`+id, 

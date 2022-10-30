@@ -42,13 +42,9 @@ export class ApartmentsListComponent implements OnInit {
     }).then((result)=>{
       if (result.value) {
         this.router.navigate(["/apartments/create"]);
-
-        
       }
     }
     )
-
-    
   }
   async delete(id) {
     Swal.fire({
